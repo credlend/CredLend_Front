@@ -58,6 +58,11 @@ button:active {
     cursor: pointer;
 }
 
+.buttons button img {
+    height: 60px; 
+    width: 60px;
+}
+
 
 .buttons button:hover{
     filter: drop-shadow(3px 2px 2px #000);
