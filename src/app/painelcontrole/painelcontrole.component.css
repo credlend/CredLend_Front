@@ -39,9 +39,9 @@ button:active {
     font-size: 15px;
 }
 
-.cont1 p img{
-    margin-bottom: 20px;
-    margin-left: 5px;
+
+.cont1 p i{
+    font-size: 20px;
 }
 
 .buttons {

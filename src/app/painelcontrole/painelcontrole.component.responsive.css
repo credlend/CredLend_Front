@@ -60,7 +60,7 @@
     }
 }
 
-@media (min-width: 1000px){
+@media (max-width: 1024px){
     .cont3 aside{
         margin-top: 15px;
         text-align: center;
@@ -124,11 +124,67 @@
         width: 50vw;
     }
 
+    .cont3 .container .info .inputs .valores input{
+        width: 130px;
+    }
+
     .cont4 aside{
         width: 100%;
     }
 
     .cont4 .container .info2{
         margin-left: 20px;
+    }
+}
+
+@media (max-width: 450px){
+    .cont3 .container .info .inputs .valores input{
+        width: 90px;
+    }
+
+    .cont3 .container .total button{
+        margin-bottom: 10px;
+    }
+
+    .cont3 .info h5{
+        font-size: 16px;
+    }
+
+    .cont3 .container .info .inputs .valores2 button{
+        width: 90px;
+        margin-bottom: 10px;
+        margin-top: 15px;
+    }
+
+    .cont3 .container .info .inputs .valores2 input{
+        width: 90px;
+    }
+
+    .cont3 .container .info .inputs .valores input{
+        width: 90px;
+        margin-left: 5px;
+    }
+
+    .cont3 .container .info .inputs .valores select{
+        width: 90px;
+        margin: 5px;
+    }
+
+    .cont4 .info h5{
+        font-size: 16px;
+    }
+    
+    .cont4 .container .info .inputs .valores button{
+        width: 90px;
+        margin-left: 30px;
+    }
+
+    .cont4 .container .info .inputs .valores select{
+        width: 90px;
+        margin: 5px 30px;
+    }
+
+    .cont4 .container .info2{
+        margin-left: 50px;
     }
 }
