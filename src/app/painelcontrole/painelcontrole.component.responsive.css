@@ -1,3 +1,9 @@
+@media (max-width: 2560px){
+    .drop-mobile{
+        display: none;
+    }
+}
+
 @media (max-width: 1200px) {
     .buttons {
         margin-left: 15%;
@@ -82,6 +88,83 @@
 
 }
 
+@media (min-width: 740px) and (max-width: 999px){
+    .nav-all{
+        width: 100vw;
+        display: flex;
+    }
+
+    .drop-mobile{
+        display: block;
+        justify-content: flex-end;
+        position: absolute;
+        margin-left: 70%;
+    }
+    .dropdown-mobile{
+        position: absolute;    
+    }
+}
+
+@media (max-width: 739px){
+    .nav-all{
+        width: 100vw;
+        display: flex;
+    }
+    .drop-mobile{
+        display: block;
+        justify-content: flex-end;
+        position: absolute;
+        margin-left: 60%;
+    }
+    .dropdown-mobile{
+        position: absolute;    
+    }
+}
+
+@media (min-width: 426px) and (max-width: 530px){
+    .nav-all{
+        width: 100vw;
+        display: flex;
+    }
+    .navbar1 img{
+        height: 30px;
+    }
+    .drop-mobile{
+        display: block;
+        justify-content: flex-end;
+        position: absolute;
+        margin-left: 50%;
+    }
+    .dropdown-mobile{
+        position: absolute;    
+    }
+    .dropdown-mobile li a{
+        font-size: 10px;    
+    }
+}
+
+@media (max-width: 425px){
+    .nav-all{
+        width: 100vw;
+        display: flex;
+    }
+    .navbar1 img{
+        height: 30px;
+    }
+    .drop-mobile{
+        display: block;
+        justify-content: flex-end;
+        position: absolute;
+        margin-left: 50%;
+    }
+    .dropdown-mobile{
+        position: absolute;    
+    }
+    .dropdown-mobile li a{
+        font-size: 10px;    
+    }
+}
+
 @media (max-width: 999px){
 
     .cont1{
@@ -90,13 +173,9 @@
         justify-content: center;
     }
 
-    .navdropdown,
+    .drop-pc,
     .navbar-toggler{
         display: none;
-    }
-
-    .offcanvas{
-        display: block;
     }
 
     .buttons {

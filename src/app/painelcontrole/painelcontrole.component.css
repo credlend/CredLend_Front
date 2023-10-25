@@ -18,6 +18,31 @@ button:active {
     height: 70px;
 }
 
+.drop-mobile{
+    width: 200px;
+}
+
+.dropdown-pc{
+    background: linear-gradient(270deg, #01072A 0%, #0D1A60 100%);
+}
+
+.dropdown-pc li a{
+    color: #FFF;
+}
+
+.dropdown-pc li a:hover{
+    color: black;
+}
+
+.dropdown-mobile{
+    background: linear-gradient(270deg, #01072A 0%, #0D1A60 100%);
+    color: #FFF;
+}
+
+.dropdown-mobile li a{
+    color: #FFF;
+}
+
 .logo-perfil {
     width: 50px;
     height: 5%;
