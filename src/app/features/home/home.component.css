@@ -1,0 +1,77 @@
+.header_rectangle {
+    background: linear-gradient(269.77deg, #000729 11.18%, #0A1449 73.08%);
+    padding: 40px;
+}
+
+.logo_credlend {
+    /* position: absolute; */
+    /* left: 0; */
+    /* margin-left: 5%; */
+    padding: 40px 0px;
+}
+
+.start_button {
+    margin-top: 32px;
+    padding: 8px 16px;
+
+    border-radius: 8px;
+    background: #FFFAFA;
+
+    
+}
+
+.align_col_203 {
+    height: 203px;
+
+    
+    @media (max-width: 575px) {
+        height: 100px;
+    }
+}
+
+.align_col_406 {
+    height: 406px;
+
+    @media (max-width: 575px) {
+        height: 203px;
+    }
+}
+
+.slogan {
+    color: #FFF;
+    font-family: Krona One;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.68px;
+
+    padding: 60px 200px 0px 0px;
+
+
+    @media (max-width: 885px) {
+        padding: 30px 0px 0px 0px;
+        font-size: 38px;
+    }
+    
+}
+
+.slogan_subtitle {
+    color: rgba(255, 255, 255, 0.58);
+    font-family: Krona One;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    padding: 0px 40px 0px 0px;
+
+
+    @media (max-width: 885px) {
+        padding: 0px;
+    }
+}
+
+.cartao {
+    max-height: 703px;
+}
