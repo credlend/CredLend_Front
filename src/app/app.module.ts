@@ -8,11 +8,14 @@ import { AppComponent } from './app.component';
 import { PainelcontroleComponent } from './painelcontrole/painelcontrole.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './features/home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PainelcontroleComponent
+    PainelcontroleComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
