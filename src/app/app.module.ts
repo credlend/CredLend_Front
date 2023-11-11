@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './features/home/home.component';
 import { TelaCadastroComponent } from './features/tela-cadastro/tela-cadastro.component';
 import { TelaLoginComponent } from './features/tela-login/tela-login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,6 +27,8 @@ import { TelaLoginComponent } from './features/tela-login/tela-login.component';
     AppRoutingModule,
     // BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
