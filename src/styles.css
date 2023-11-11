@@ -2,3 +2,25 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.elipse-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.elipse {
+    position: relative;
+    width: 400px;
+    height: 1000px;
+    background-color: #1E61AE;
+    filter: blur(270px);
+    border-radius: 80%;
+    top: 30vh;
+    right: 20vh;
+}

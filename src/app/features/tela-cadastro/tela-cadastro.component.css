@@ -1,0 +1,371 @@
+
+@font-face {
+    font-family: 'Krona One';
+    src: url('/assets/KronaOne.woff2') format('woff2'),
+         url('/assets/KronaOne.woff') format('woff');
+  }
+  
+  body {
+    font-family: 'Krona One', sans-serif;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Krona One', sans-serif;
+  }
+
+.half1 {
+    background-color: #01072a;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #01072A;
+    font-family: 'Krona One', sans-serif;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.half2 {
+    background-color: #01072a;
+    width: 50vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.Login{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    background-color: #080F38;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.entrar {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    color: white;
+    font-size: 40px;
+}
+
+.autenticação {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Apple {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.Apple p {
+    margin-left: 10px;
+}
+
+.AppleAut {
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    width: 25vw;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px;
+    z-index: 0;
+}
+
+.Google {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    margin-left: 10px;
+}
+
+.Google p {
+    margin-left: 10px;
+}
+
+.Apple p {
+    margin-left: 10px;
+}
+
+.GoogleAut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    width: 25vw;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px;
+    z-index: 0;
+}
+
+.ou {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 10px;
+    z-index: 0;
+}
+
+.ou p {
+    margin: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.form-group-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.form-group-name .nome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form-group-name .sobrenome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form-group-cpf {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+}
+
+.form-group-cpf .cpf {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.form-group-cpf .data-de-nasc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+    margin-left: 10px;
+}
+
+.form-cpf-nasc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group .email {
+    display: flex;
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.form-group .senha {
+    display: flex;
+    width: 400px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-input {
+    position: relative;
+    width: 380px;
+}
+
+.Entrar {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.Entrar button{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 400px;
+    height: 50px;
+    background-color: #FFF500;
+    color: black;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.criar-conta button{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 400px;
+        height: 50px;
+        background-color: #FFF500;
+        color: black;
+        font-size: 16px;
+        border-radius: 10px;
+}
+
+.texto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.texto h1{
+    font-size: 65px;
+    padding: 0;
+    margin: 20px;
+}
+
+.texto h3{
+    font-size: 16px;
+    margin: 3px;
+}
+
+.icone{
+    margin: 30px;
+    margin-left: 60px;
+    position: absolute;
+    display: flex;
+    align-items: start;
+}
+
+.elipse-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.elipse {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #1E61AE;
+    filter: blur(80px);
+    border-radius: 80%;
+    top: 40vh;
+    left: 90vh;
+}
+
+.cyberpunk-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #b8d030;
+    border-radius: 5px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    margin-right: 6px;
+    cursor: pointer;
+  }
+  
+  .cyberpunk-checkbox:before {
+    content: "";
+    background-color: #b8d030;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cyberpunk-checkbox:checked:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .cyberpunk-checkbox-label {
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .lembrarsenha{
+    font-size: 15px;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+  }
+  .checkboxsenha {
+    margin-left: 5%;
+  }
+  
+  .esqueceusenha{
+    display: flex;
+    color: white;
+    align-items: end;
+    margin-bottom: 10px;
+  }
+
