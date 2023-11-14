@@ -12,12 +12,12 @@
                         <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle text-light"
                             id="navbarDropdownMenuLink" role="button" style="cursor: pointer;" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="https://pegadanatural.com.br/wp-content/uploads/3-maneiras-de-cuidar-do-seu-filhote-de-cachorro-com-qualidade.jpg"
+                            <img src="assets/perfil.jpg"
                                 alt="foto-perfil" class="logo-perfil">
                         </a>
                         <ul class="dropdown-menu dropdown-pc" *dropdownMenu style="font-size: 12px;">
-                            <li><a class="dropdown-item" routerLink="">Configurações</a></li>
-                            <li><a class="dropdown-item" routerLink="">Sair</a></li>
+                            <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
+                            <li><a class="dropdown-item" routerLink="../login">Sair</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -29,12 +29,12 @@
                         <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle text-light"
                             id="navbarDropdownMenuLink" role="button" style="cursor: pointer;" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="https://pegadanatural.com.br/wp-content/uploads/3-maneiras-de-cuidar-do-seu-filhote-de-cachorro-com-qualidade.jpg"
+                            <img src="assets/perfil.jpg"
                                 alt="foto-perfil" class="logo-perfil">
                         </a>
                         <ul class="dropdown-menu dropdown-mobile" *dropdownMenu style="font-size: 12px;">
-                            <li><a class="dropdown-item" routerLink="">Configurações</a></li>
-                            <li><a class="dropdown-item" routerLink="">Sair</a></li>
+                            <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
+                            <li><a class="dropdown-item" routerLink="../login">Sair</a></li>
                             <hr>
                             <li><a class="dropdown-item" routerLink="">PIX</a></li>
                             <li><a class="dropdown-item" routerLink="">Recarga Cel</a></li>
@@ -51,11 +51,11 @@
     </nav>
 </div>
 <div class="container">
-    <p style="margin-top: 5px;">Olá Guilherme!</p>
+    <p style="margin-top: 5px;">Olá {{nome}}!</p>
 
     <div class="cont1" style="padding: 10px 20px;">
-        <p>Minha Carteira <i class="bi bi-eye-slash" style="cursor: pointer;" id="olho"></i></p>
-        <p style="margin-top: -10px;">R$ ***,**</p>
+        <p>Minha Carteira <i class='{{mostrarSaldo ?  "bi bi-eye" : "bi bi-eye-slash"}}' (click)="esconderMostrar()" style="cursor: pointer;" id="olho"></i></p>
+        <p style="margin-top: -10px;">R$ <span>{{ mostrarSaldo ? saldo : '*****' }}</span></p>
         <div class="buttons">
             <ul>
                 <button><img src="assets/btn-pix.png" alt=""></button>

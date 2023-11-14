@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class PainelcontroleComponent {
 
+  public nome = "Leonardo";
+  public saldo = 0;
+  public mostrarSaldo = false;
+
+
+
+  esconderMostrar(){
+    this.mostrarSaldo = !this.mostrarSaldo;
+  }
+
 }

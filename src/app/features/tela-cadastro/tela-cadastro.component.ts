@@ -11,22 +11,21 @@ export class TelaCadastroComponent {
   public title = 'CredLendFront';
   public formCadastro!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder
-  ) { }
-
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) {
     this.criarForm();
-  }
+   }
+
+  ngOnInit(): void { }
 
   criarForm() {
     this.formCadastro = this.fb.group({
-      nome: [null, [Validators.required]],
-      sobrenome: [null, [Validators.required]],
-      cpf: [null, [Validators.required]],
-      dataNascimento: [null, [Validators.required]],
-      email:[null, [Validators.required]],
-      senha: [null, [Validators.required]]
+      id: [''],
+      nome: ['', [Validators.required]],
+      sobrenome: ['', [Validators.required]],
+      cpf: ['', [Validators.required]],
+      dataNascimento: ['', [Validators.required]],
+      email:['', [Validators.required]],
+      senha: ['', [Validators.required]]
     });
   }
 }

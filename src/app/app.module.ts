@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PainelcontroleComponent } from './features/painelcontrole/painelcontrole.component';
-// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './features/home/home.component';
 import { TelaCadastroComponent } from './features/tela-cadastro/tela-cadastro.component';
@@ -25,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // BsDropdownModule.forRoot(),
+    BsDropdownModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule
