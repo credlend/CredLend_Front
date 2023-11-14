@@ -6,8 +6,9 @@ import { HomeComponent } from './features/home/home.component';
 import { TelaLoginComponent } from './features/tela-login/tela-login.component';
 import { TelaCadastroComponent } from './features/tela-cadastro/tela-cadastro.component';
 
+
 const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'cadastro', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'painelcontrole', component: PainelcontroleComponent },
     { path: 'login', component: TelaLoginComponent },
