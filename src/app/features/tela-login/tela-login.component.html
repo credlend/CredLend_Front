@@ -53,25 +53,28 @@
             <div style="width: 100%; height: 100%; border: 3px white solid"></div>
           </div>
         </div>
-        <div class="form-container">
-          <div class="form-group">
-            <div class="email"><label for="email"></label>
-              <input type="email" id="email" name="email" placeholder="Email">
-            </div>
-          </div>
-    
-          <div class="form-group-senha">
-            <div class="senha2"><label for="senha"></label>
-              <div class="password-input">
-                <input type="password" id="senha" name="senha" placeholder="Senha">
+
+        <form [formGroup]="formLogin" (submit)="Submit()" style="z-index: 1;">
+          <div class="form-container">
+            <div class="form-group">
+              <div class="email"><label for="email"></label>
+                <input type="email" formControlName="email" id="email" name="email" placeholder="Email">
               </div>
             </div>
-          </div>
+            
+            <div class="form-group-senha">
+              <div class="senha2"><label for="senha"></label>
+                <div class="password-input">
+                  <input type="password" formControlName="password" id="senha" name="senha" placeholder="Senha">
+                </div>
+              </div>
+            </div>
 
           <div class="Entrar">
             <button>ENTRAR</button>
           </div>
         </div>
+        </form>
       </div>
   </div>
     <div class="half1">
@@ -87,7 +90,7 @@
         <br>
         <br>
         <h2>Ainda não possui uma conta?</h2>
-        <div class="criar-conta"><button>Crie sua conta agora</button></div>
+        <div class="criar-conta"><button routerLink="cadastro">Crie sua conta agora</button></div>
       </div>
     </div>
   </div>

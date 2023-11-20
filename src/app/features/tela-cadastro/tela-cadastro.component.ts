@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Role } from 'src/app/models/Role';
 import { User } from 'src/app/models/User';
+import { RoleService } from 'src/app/services/role.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,32 +14,58 @@ export class TelaCadastroComponent implements OnInit {
 
   public title = 'CredLendFront';
   public formCadastro!: FormGroup;
+  public formRole!: FormGroup;
   token!: string;
 
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
-    this.criarForm();
-   }
-
-  ngOnInit(): void {
-  
+  constructor(private fb: FormBuilder, private userService: UserService, private roleService: RoleService) {
+    this.createFormUser();
+    this.createFormRole();
   }
 
-  criarForm() {
+  ngOnInit(): void {
+
+  }
+
+  createFormUser() {
     this.formCadastro = this.fb.group({
-      id: [''],
-      nome: ['', [Validators.required]],
-      sobrenome: ['', [Validators.required]],
+      completeName: ['', [Validators.required]],
+      userName: ['', [Validators.required]],
       cpf: ['', [Validators.required]],
-      dataNascimento: ['', [Validators.required]],
+      birthDate: ['', [Validators.required]],
       email: ['', [Validators.required]],
-      senha: ['', [Validators.required]],
-      confirmsenha: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
+      isActive: [true]
     });
   }
 
-  salvarUser(user: User){
-    this.userService.post(user).subscribe(
+  createFormRole() {
+    this.formRole = this.fb.group({
+      email: [''],
+      role: [''],
+      delete: [false]
+    });
+  }
+
+  patchValueRole() {
+    this.formRole.patchValue({
+      email: this.formCadastro.get("email")?.value,
+      role: "User",
+      delete: false,
+    });
+  }
+
+  replaceName() {
+    let name = this.formCadastro.get("completeName")?.value.replace(/\s/g, "").replace(/[ãáâ]/g, "a");
+    this.formCadastro.patchValue({
+      userName: name
+    });
+    console.log(name);
+  }
+
+  saveUser(user: User) {
+    this.userService.postRegister(user).subscribe(
       (retorno: User | any) => {
         console.log(retorno);
       },
@@ -47,10 +75,32 @@ export class TelaCadastroComponent implements OnInit {
     );
   }
 
-  userSubmit() {
-    console.log(this.formCadastro.value);
-    this.salvarUser(this.formCadastro.value);
+  Submit() {
+    setTimeout(() => {
+      this.roleSubmit();
+    }, 2000);
   }
 
+  userSubmit() {
+    console.log(this.formCadastro.value);
+    this.saveUser(this.formCadastro.value);
+  }
+
+  roleSubmit() {
+    this.patchValueRole();
+    this.putRole(this.formRole.value);
+    console.log(this.formRole.value)
+  }
+
+  putRole(role: Role) {
+    this.roleService.put(role).subscribe(
+      (retorno: Role | any) => {
+        console.log(retorno);
+      },
+      (erro: any) => {
+        console.log(erro);
+      }
+    );
+  }
 
 }

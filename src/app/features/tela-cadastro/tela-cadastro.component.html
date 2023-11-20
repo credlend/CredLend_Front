@@ -23,7 +23,7 @@
           <br>
           <br>
           <h2>Você já possui uma conta?</h2>
-          <div class="criar-conta"><button>Clique aqui para fazer login</button></div>
+          <div class="criar-conta"><button routerLink="../login">Clique aqui para fazer login</button></div>
         </div>
       </div>
       <div class="half2">
@@ -73,10 +73,7 @@
             <div class="form-container">
               <div class="form-group-name">
                 <div class="nome"><label for="nome"></label>
-                  <input type="text" formControlName="nome" id="nome" name="nome" placeholder="Nome">
-                </div>
-                <div class="sobrenome"><label for="sobrenome"></label>
-                  <input type="text" formControlName="sobrenome" id="sobrenome" name="sobrenome" placeholder="Sobrenome">
+                  <input (change)="replaceName()" type="text" formControlName="completeName" id="nome" name="nome" placeholder="Nome Completo">
                 </div>
               </div>
               <div class="form-group-cpf">
@@ -84,7 +81,7 @@
                   <input type="text" formControlName="cpf" id="cpf" name="cpf" placeholder="CPF">
                 </div>
                 <div class="data-de-nasc"><label for="data-nascimento"></label>
-                  <input type="date" formControlName="dataNascimento" id="data-nascimento" name="data-nascimento">
+                  <input type="date" formControlName="birthDate" id="data-nascimento" name="data-nascimento">
                 </div>
               </div>
         
@@ -97,17 +94,17 @@
               <div class="form-group-senha">
                 <div class="senha2"><label for="senha"></label>
                   <div class="password-input">
-                    <input type="password" formControlName="senha" id="senha" name="senha" placeholder="Senha">
+                    <input type="password" formControlName="password" id="senha" name="senha" placeholder="Senha">
                   </div>
                 </div>
-                <div class="confirmarsenha"><label for="senha"></label>
+                <div class="confirmarsenha"><label for="confirmsenha"></label>
                   <div class="password-input">
-                    <input type="password" formControlName="confirmsenha" id="confirmsenha" name="confirmsenha" placeholder="Confimar senha">
+                    <input type="password" formControlName="confirmPassword" id="confirmsenha" name="confirmsenha" placeholder="Confimar senha">
                   </div>
                 </div>
               </div>
               <div class="Entrar">
-                <button>ENTRAR</button>
+                <button (click)="Submit()">ENTRAR</button>
               </div>
             </div>
           </form>

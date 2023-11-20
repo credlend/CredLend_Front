@@ -1,23 +1,22 @@
 export class User{
 
     constructor() {
-        this.id = 0;
-        this.nome = '';
-        this.sobrenome = '';
-        this.sobrenome = '';
+        this.completeName = '';
+        this.userName = '';
         this.cpf = '';
-        this.dataNascimento = undefined;
+        this.birthDate = undefined;
         this.email = '';
-        this.senha = '';
-        this.confirmsenha = '';
+        this.password = '';
+        this.confirmPassword = '';
+        this.isActive = true;
     }
 
-    id!: number;
-    nome!: string;
-    sobrenome!: string;
+    completeName!: string;
+    userName!: string;
     cpf!: string;
-    dataNascimento!: Date | undefined;
+    birthDate!: Date | undefined;
     email!: string;
-    senha!: string;
-    confirmsenha!: string;
+    password!: string;
+    confirmPassword!: string;
+    isActive!: boolean;
 }

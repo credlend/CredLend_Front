@@ -14,20 +14,30 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseUrl}`);
+    return this.http.get<User[]>(`${this.baseUrl}/AllUsers`);
   }
 
-  getById(id: number): Observable<User>{
-    return this.http.get<User>(`${this.baseUrl}/${id}`);
+  getAllActive(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/ActiveUsers`);
   }
 
-  post(user: User){
-    return this.http.post(`${this.baseUrl}`, user);
+  // getById(id: number): Observable<User>{
+  //   return this.http.get<User>(`${this.baseUrl}/${id}`);
+  // }
+
+  postRegister(user: User){
+    return this.http.post(`${this.baseUrl}/Register`, user);
   }
 
-  put(user: User){
-    return this.http.put(`${this.baseUrl}/${user.id}`, user);
+  postLogin(user: User): Observable<string>{
+    return this.http.post(`${this.baseUrl}/Login`, user, {
+      responseType: 'text',
+    });
   }
+
+  // put(user: User){
+  //   return this.http.put(`${this.baseUrl}/${user.id}`, user);
+  // }
 
   delete(id: number){
     return this.http.delete(`${this.baseUrl}/${id}`);
