@@ -1,0 +1,179 @@
+<div class="container cont2" style="min-width: 100vw;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid nav-all">
+            <a class="navbar-brand navbar1"><img src="assets/logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container d-flex justify-content-end" style="margin-right: 50px;">
+                <ul class="navbar-nav navdropdown drop-pc" dropdown>
+                    <li class="nav-item dropdown">
+                        <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle text-light"
+                            id="navbarDropdownMenuLink" role="button" style="cursor: pointer;" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="assets/perfil.jpg"
+                                alt="foto-perfil" class="logo-perfil">
+                        </a>
+                        <ul class="dropdown-menu dropdown-pc" *dropdownMenu style="font-size: 12px;">
+                            <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
+                            <li><a class="dropdown-item" routerLink="../login">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="drop-mobile container justify-content-end" style="margin-right: 50px;">
+                <ul class="navbar-nav navdropdown" dropdown>
+                    <li class="nav-item dropdown">
+                        <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle text-light"
+                            id="navbarDropdownMenuLink" role="button" style="cursor: pointer;" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="assets/perfil.jpg"
+                                alt="foto-perfil" class="logo-perfil">
+                        </a>
+                        <ul class="dropdown-menu dropdown-mobile" *dropdownMenu style="font-size: 12px;">
+                            <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
+                            <li><a class="dropdown-item" routerLink="../login">Sair</a></li>
+                            <hr>
+                            <li><a class="dropdown-item" routerLink="">PIX</a></li>
+                            <li><a class="dropdown-item" routerLink="">Recarga Cel</a></li>
+                            <li><a class="dropdown-item" routerLink="">Pagar</a></li>
+                            <li><a class="dropdown-item" routerLink="">Cobrar</a></li>
+                            <li><a class="dropdown-item" routerLink="">Investir</a></li>
+                            <li><a class="dropdown-item" routerLink="">Fundos</a></li>
+                            <li><a class="dropdown-item" routerLink="">Transferir Inter.</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container">
+    <p style="margin-top: 5px;">Olá {{nome}}!</p>
+
+    <div class="cont1" style="padding: 10px 20px;">
+        <p>Minha Carteira <i class='{{mostrarSaldo ?  "bi bi-eye" : "bi bi-eye-slash"}}' (click)="esconderMostrar()" style="cursor: pointer;" id="olho"></i></p>
+        <p style="margin-top: -10px;">R$ <span>{{ mostrarSaldo ? saldo : '*****' }}</span></p>
+        <div class="buttons">
+            <ul>
+                <button><img src="assets/btn-pix.png" alt=""></button>
+                <p>PIX</p>
+            </ul>
+            <ul>
+                <button><img src="assets/btn-recarga.png" alt=""></button>
+                <p>Recarga Cel.</p>
+            </ul>
+            <ul>
+                <button><img src="assets/btn-pagar.png" alt=""></button>
+                <p>Pagar</p>
+            </ul>
+            <ul>
+                <button><img src="assets/btn-cobrar.png" alt=""></button>
+                <p>Cobrar</p>
+            </ul>
+            <ul>
+                <button><img src="assets/btn-investir.png" alt=""></button>
+                <p>Investir</p>
+            </ul>
+            <ul>
+                <button><img src="assets/btn-fundos.png" alt=""></button>
+                <p>Fundos</p>
+            </ul>
+            <ul>
+                <button><img src="assets/btn-trans.png" alt=""></button>
+                <p>Transferir Inter.</p>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cartao">
+        <aside>
+            <p>Meus cartões</p>
+            <img src="assets/cartao.png" alt="">
+            <div class="card-buttons">
+                <ul>
+                    <input type="radio" id="style1" name="card-style">
+                    <input type="radio" id="style2" name="card-style" checked>
+                    <input type="radio" id="style3" name="card-style">
+                </ul>
+                <div class="hr"></div>
+                <div class="historico">
+                    <p>Histórico de Transações</p> <span>Hoje <i class="bi bi-chevron-down"></i></span>
+                </div>
+                <p class="espaco"></p>
+            </div>
+        </aside>
+    </div>
+
+    <div class="cont3">
+        <aside>
+            <div class="container">
+                <div class="info">
+                    <h5>Pedir empréstimo</h5>
+                    <div class="inputs">
+                        <div class="valores">
+                            <label for="moedas">Quanto você deseja?</label>
+                            <br>
+                            <select name="moedas" style="margin-right: 3px; padding: 1px;">
+                                <option value="Real Brasileiro">BRL</option>
+                                <option value="Dolar Americano">USD</option>
+                                <option value="Euro">EUR</option>
+                            </select>
+                            <input type="number" name="valor" value="10000" style="text-align: end;">
+                            <!-- <input type="range" name="" id=""> -->
+                        </div>
+                        <div class="valores2">
+                            <label for="data">Pagar a 1ª parcela</label>
+                            <br>
+                            <input class="input-data" type="date" name="data" id="">
+                            <!-- <input type="range" name="" id=""> -->
+                            <br><br>
+                            <button>Calcular</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="total">
+                    <p>Valor Total: 13.520</p>
+                    <button>Finalizar</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="cont4">
+        <aside>
+
+            <div class="container">
+                <div class="info">
+                    <h5>Investir seu dinheiro</h5>
+                    <div class="inputs">
+                        <div class="valores">
+                            <label for="moedas2">Quanto deseja investir?</label>
+                            <br>
+                            <select name="moedas2" style="margin-right: 3px; padding: 1px;">
+                                <option value="Real Brasileiro">BRL</option>
+                                <option value="Dolar Americano">USD</option>
+                                <option value="Euro">EUR</option>
+                            </select>
+                            <input type="number" name="valor" value="10000">
+                            <button>Finalizar</button>
+                            <!-- <input type="range" name="" id="" style="width: 53%; accent-color: var(--yellow);"> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="info2">
+                    <h6>Bônus de Investidor <span>Nível 1</span></h6>
+                    <p>Invista R$1.000 para alcançar o nível 2.</p>
+                    <br>
+                    <h6>Nível 2 <i class="bi bi-lock"></i></h6>
+                    <p>Desbloqueie o nível 2 e ganhe mais 2.000 de empréstimo.</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,308 @@
+
+
+
+@font-face {
+    font-family: 'Krona One';
+    src: url('/assets/KronaOne.woff2') format('woff2'),
+         url('/assets/KronaOne.woff') format('woff');
+  }
+  
+  body {
+    font-family: 'Krona One', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #01072a;
+    z-index: 0;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Krona One', sans-serif;
+  }
+
+.half1 {
+    background-color: #01072a;
+    width: 50vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: #01072A;
+    font-family: 'Krona One', sans-serif;
+}
+
+.half2 {
+    
+    background-color: #01072a;
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.Login{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    background-color: #080F38;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.entrar {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    color: white;
+    font-size: 40px;
+}
+
+.autenticação {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Apple {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+
+}
+
+
+.AppleAut {
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    width: 25vw;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px;
+    z-index: 0;
+}
+
+.Google {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.Apple p {
+    margin-left: 10px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.GoogleAut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    width: 25vw;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px;
+    z-index: 0;
+}
+
+.Google p{
+    margin-left: 10px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.ou {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 10px;
+    z-index: 0;
+}
+
+.ou p {
+    margin: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    width: 450px;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.form-group .email {
+    display: flex;
+    width: 85%;
+}
+
+.form-group-senha{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-input {
+    position: relative;
+    width: 380px;
+}
+
+.Entrar {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.Entrar button{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 400px;
+    height: 50px;
+    background-color: #FFF500;
+    color: black;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.criar-conta button{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 400px;
+        height: 50px;
+        background-color: #FFF500;
+        color: black;
+        font-size: 16px;
+        border-radius: 10px;
+}
+
+.texto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.texto h1{
+    font-size: 65px;
+    padding: 0;
+    margin: 20px;
+}
+
+.texto h3{
+    font-size: 16px;
+    margin: 3px;
+}
+
+.icone{
+    margin: 30px;
+    margin-left: 60px;
+    position: absolute;
+    display: flex;
+    align-items: start;
+}
+
+.elipse-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.elipse {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #1E61AE;
+    filter: blur(80px);
+    border-radius: 80%;
+    top: 40vh;
+    left: 90vh;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.elipse-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.elipse {
+    position: relative;
+    width: 400px;
+    height: 1000px;
+    background-color: #1E61AE;
+    filter: blur(270px);
+    border-radius: 80%;
+    top: 30vh;
+    right: 20vh;
+}
+
+
+.elipse-container3 {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.elipse3 {
+    position: relative;
+    width: 400px;
+    height: 1000px;
+    background-color: #1E61AE;
+    filter: blur(270px);
+    border-radius: 80%;
+    top: -50vh;
+    right: -200vh;
+}
