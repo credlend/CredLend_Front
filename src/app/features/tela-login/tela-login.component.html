@@ -9,7 +9,6 @@
     <div class="elipse3"></div>
   </div>
   <div class="container">
-
     <div class="row d-flex">
       <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 alignRow">
         <div class="half2">
@@ -87,12 +86,29 @@
             <h3>Faça login para continuar sua jornada com</h3>
             <h3>o melhor banco de microcrédito nacional.</h3>
 
+        <form [formGroup]="formLogin" (submit)="Submit()" style="z-index: 1;">
+          <div class="form-container">
+            <div class="form-group">
+              <div class="email"><label for="email"></label>
+                <input type="email" formControlName="email" id="email" name="email" placeholder="Email">
+              </div>
+            </div>
+            
+            <div class="form-group-senha">
+              <div class="senha2"><label for="senha"></label>
+                <div class="password-input">
+                  <input type="password" formControlName="password" id="senha" name="senha" placeholder="Senha">
+                </div>
+              </div>
+            </div>
+            
             <div class="conta">
               <h2>Ainda não possui uma conta?</h2>
               <div class="criar-conta"><button>Crie sua conta agora</button></div>
             </div>
           </div>
         </div>
+        </form>
       </div>
     </div>
   </div>
