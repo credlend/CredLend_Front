@@ -11,7 +11,7 @@ body {
   padding: 0;
   background-color: #01072a;
   min-width: 520px;
-  min-height: 570px;
+  min-height: 600px;
   z-index: 0;
 }
 
@@ -171,11 +171,17 @@ body {
   margin-bottom: 10px;
 }
 
+.nome {
+  width: 100%;
+}
+
+
 .form-group-name .nome {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+ 
 }
 
 .form-group-name .sobrenome {
@@ -392,7 +398,7 @@ input {
   }
 
   body {
-    min-height: 1100px;
+    min-height: 1150px;
   }
 }
 
