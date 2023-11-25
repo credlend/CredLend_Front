@@ -112,30 +112,30 @@
             <div class="container">
                 <div class="info">
                     <h5>Pedir empréstimo</h5>
-                    <div class="inputs">
-                        <div class="valores">
-                            <label for="moedas">Quanto você deseja?</label>
-                            <br>
-                            <select name="moedas" style="margin-right: 3px; padding: 1px;">
-                                <option value="Real Brasileiro">BRL</option>
-                                <option value="Dolar Americano">USD</option>
-                                <option value="Euro">EUR</option>
-                            </select>
-                            <input type="number" name="valor" value="10000" style="text-align: end;">
-                            <!-- <input type="range" name="" id=""> -->
+                    <form [formGroup]="formLoan" (submit)="createFormLoan()">
+                        <div class="inputs">
+                            <div class="valores">
+                                <label>Quanto você deseja?</label>
+                                <br>
+                                <input type="number" formControlName="valuePlan" name="valor" style="text-align: end;">
+                            </div>
+                            <div class="valores2">
+                                <label for="data">Pagar a 1ª parcela</label>
+                                <br>
+                                <input class="input-data" formControlName="operationDate" type="date" name="data" id="">
+                                <br><br>
+                                <button>Calcular</button>
+                            </div>
+                            <div class="valores3">
+                                <label>Taxa de juros</label>
+                                <br>
+                                <input type="number" formControlName="interestRate" name="valor-juros" style="text-align: end;">
+                            </div>
                         </div>
-                        <div class="valores2">
-                            <label for="data">Pagar a 1ª parcela</label>
-                            <br>
-                            <input class="input-data" type="date" name="data" id="">
-                            <!-- <input type="range" name="" id=""> -->
-                            <br><br>
-                            <button>Calcular</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="total">
-                    <p>Valor Total: 13.520</p>
+                    <p>Valor Total: 0</p>
                     <button>Finalizar</button>
                 </div>
             </div>
