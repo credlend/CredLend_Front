@@ -31,7 +31,7 @@ export class TelaLoginComponent {
       },
       (erro: any) => {
         console.log(erro);
-        alert("O usuário não existe!")
+        alert("O usuário não existe!");
       }
     );
   }
