@@ -70,6 +70,7 @@ export class TelaCadastroComponent implements OnInit {
         console.log(retorno);
       },
       (erro: any) => {
+        alert("Informe valores válidos!")
         console.log(erro);
       }
     );

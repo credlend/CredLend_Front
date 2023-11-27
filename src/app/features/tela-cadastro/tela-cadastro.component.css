@@ -1,8 +1,8 @@
-@font-face {
+/* @font-face {
   font-family: "Krona One";
   src: url("/assets/KronaOne.woff2") format("woff2"),
     url("/assets/KronaOne.woff") format("woff");
-}
+} */
 
 body {
   font-family: "Krona One", sans-serif;

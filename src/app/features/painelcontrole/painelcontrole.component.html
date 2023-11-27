@@ -12,8 +12,7 @@
                         <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle text-light"
                             id="navbarDropdownMenuLink" role="button" style="cursor: pointer;" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="assets/perfil.jpg"
-                                alt="foto-perfil" class="logo-perfil">
+                            <img src="assets/perfil.jpg" alt="foto-perfil" class="logo-perfil">
                         </a>
                         <ul class="dropdown-menu dropdown-pc" *dropdownMenu style="font-size: 12px;">
                             <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
@@ -29,8 +28,7 @@
                         <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle text-light"
                             id="navbarDropdownMenuLink" role="button" style="cursor: pointer;" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="assets/perfil.jpg"
-                                alt="foto-perfil" class="logo-perfil">
+                            <img src="assets/perfil.jpg" alt="foto-perfil" class="logo-perfil">
                         </a>
                         <ul class="dropdown-menu dropdown-mobile" *dropdownMenu style="font-size: 12px;">
                             <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
@@ -54,7 +52,8 @@
     <p style="margin-top: 5px;">Olá {{nome}}!</p>
 
     <div class="cont1" style="padding: 10px 20px;">
-        <p>Minha Carteira <i class='{{mostrarSaldo ?  "bi bi-eye" : "bi bi-eye-slash"}}' (click)="esconderMostrar()" style="cursor: pointer;" id="olho"></i></p>
+        <p>Minha Carteira <i class='{{mostrarSaldo ?  "bi bi-eye" : "bi bi-eye-slash"}}' (click)="esconderMostrar()"
+                style="cursor: pointer;" id="olho"></i></p>
         <p style="margin-top: -10px;">R$ <span>{{ mostrarSaldo ? saldo : '*****' }}</span></p>
         <div class="buttons">
             <ul>
@@ -112,7 +111,7 @@
             <div class="container">
                 <div class="info">
                     <h5>Pedir empréstimo</h5>
-                    <form [formGroup]="formLoan" (submit)="SubmitLoan()">
+                    <form [formGroup]="formLoan">
                         <div class="inputs">
                             <div class="valores">
                                 <label>Quanto você deseja?</label>
@@ -122,21 +121,23 @@
                             <div class="valores2">
                                 <label for="data">Pagar a 1ª parcela</label>
                                 <br>
-                                <input class="input-data" formControlName="operationDate" type="date" name="data" id="">
+                                <input class="input-data" mask="0000/M0/d0" formControlName="paymentTerm"
+                                    type="datetime" name="data" id="">
                                 <br><br>
-                                <button>Calcular</button>
+                                <button (click)="updateFormLoan()">Calcular</button>
                             </div>
                             <div class="valores3">
                                 <label>Taxa de juros</label>
                                 <br>
-                                <input type="number" formControlName="interestRate" name="valor-juros" style="text-align: end;">
+                                <input type="number" formControlName="interestRate" name="valor-juros"
+                                    style="text-align: end;">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="total">
                     <p>Valor Total: 0</p>
-                    <button>Finalizar</button>
+                    <button (click)="SubmitLoan()">Finalizar</button>
                 </div>
             </div>
         </aside>
@@ -144,24 +145,25 @@
 
     <div class="cont4">
         <aside>
-
             <div class="container">
                 <div class="info">
                     <h5>Investir seu dinheiro</h5>
-                    <div class="inputs">
-                        <div class="valores">
-                            <label for="moedas2">Quanto deseja investir?</label>
-                            <br>
-                            <select name="moedas2" style="margin-right: 3px; padding: 1px;">
-                                <option value="Real Brasileiro">BRL</option>
-                                <option value="Dolar Americano">USD</option>
-                                <option value="Euro">EUR</option>
-                            </select>
-                            <input type="number" name="valor" value="10000">
-                            <button>Finalizar</button>
-                            <!-- <input type="range" name="" id="" style="width: 53%; accent-color: var(--yellow);"> -->
+                    <form [formGroup]="formInvestment">
+                        <div class="inputs">
+                            <div class="valores">
+                                <label for="moedas2">Quanto deseja investir?</label>
+                                <br>
+                                <input (change)="updateFormInvestment()" type="number" formControlName="valuePlan" name="valor" value="10000">
+                            </div>
+                            <div class="valores3">
+                                <label>Taxa de retorno</label>
+                                <br>
+                                <input  type="number" formControlName="returnRate" name="valor-juros"
+                                style="text-align: end;">
+                                <button (click)="SubmitInvestment()">Finalizar</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="info2">
                     <h6>Bônus de Investidor <span>Nível 1</span></h6>
@@ -174,6 +176,3 @@
         </aside>
     </div>
 </div>
-
-
-
