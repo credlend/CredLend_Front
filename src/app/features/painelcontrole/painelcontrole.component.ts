@@ -212,8 +212,8 @@ export class PainelcontroleComponent implements OnInit {
   }
 
   logOut(){
-    localStorage.removeItem('authToken');
-    this.router.navigate(['/login'])
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 
