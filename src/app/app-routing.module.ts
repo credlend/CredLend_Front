@@ -8,7 +8,7 @@ import { TelaCadastroComponent } from './features/tela-cadastro/tela-cadastro.co
 
 
 const routes: Routes = [
-    { path: '', redirectTo: 'cadastro', pathMatch: 'full' },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'painelcontrole', component: PainelcontroleComponent },
     { path: 'login', component: TelaLoginComponent },

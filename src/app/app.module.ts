@@ -13,6 +13,7 @@ import { TelaLoginComponent } from './features/tela-login/tela-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './services/authinterceptor';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
     ReactiveFormsModule,
     HttpClientModule,
     NgxMaskDirective,
+    NgxSpinnerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
