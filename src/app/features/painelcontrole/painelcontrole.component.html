@@ -32,7 +32,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-mobile" *dropdownMenu style="font-size: 12px;">
                             <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
-                            <li><a class="dropdown-item" routerLink="../login">Sair</a></li>
+                            <li><a class="dropdown-item" (click)="logOut()">Sair</a></li>
                             <hr>
                             <li><a class="dropdown-item" routerLink="">PIX</a></li>
                             <li><a class="dropdown-item" routerLink="">Recarga Cel</a></li>
@@ -52,7 +52,7 @@
     <p style="margin-top: 5px;">Olá {{nome}}!</p>
 
     <div class="cont1" style="padding: 10px 20px;">
-        <p>Minha Carteira <i class='{{mostrarSaldo ?  "bi bi-eye" : "bi bi-eye-slash"}}' (click)="esconderMostrar()"
+        <p>Minha Carteira <i class='{{mostrarSaldo ?  "bi bi-eye" : "bi bi-eye-slash"}}' (click)="showBalance()"
                 style="cursor: pointer;" id="olho"></i></p>
         <p style="margin-top: -10px;">R$ <span>{{ mostrarSaldo ? saldo : '*****' }}</span></p>
         <div class="buttons">

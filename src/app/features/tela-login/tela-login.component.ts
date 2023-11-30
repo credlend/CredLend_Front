@@ -29,6 +29,8 @@ export class TelaLoginComponent {
     this.spinner.show();
     setTimeout(() => {
       this.spinner.hide();
+    }, 1000);
+    setTimeout(() => {
       this.userService.postLogin(user).subscribe(
         (token: string | any) => {
           alert("Usuário logado com sucesso !");
@@ -41,7 +43,7 @@ export class TelaLoginComponent {
           alert("O usuário não existe!");
         }
       );
-    }, 1000);
+    }, 1200);
   }
 
   Submit() {

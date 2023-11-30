@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Role } from 'src/app/models/Role';
 import { User } from 'src/app/models/User';
 import { RoleService } from 'src/app/services/role.service';
@@ -18,7 +21,7 @@ export class TelaCadastroComponent implements OnInit {
   token!: string;
 
 
-  constructor(private fb: FormBuilder, private userService: UserService, private roleService: RoleService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private roleService: RoleService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormUser();
     this.createFormRole();
   }
@@ -65,15 +68,28 @@ export class TelaCadastroComponent implements OnInit {
   }
 
   saveUser(user: User) {
-    this.userService.postRegister(user).subscribe(
-      (retorno: User | any) => {
-        console.log(retorno);
-      },
-      (erro: any) => {
-        alert("Informe valores válidos!")
-        console.log(erro);
-      }
-    );
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
+    setTimeout(() => {
+      this.userService.postRegister(user).subscribe(
+        (retorno: User | any) => {
+          console.log(retorno);
+        },
+        (erro: HttpErrorResponse) => {
+          if (erro.status === 200) {
+            alert("Usuário cadastrado com sucesso!");
+            console.log(erro);
+            this.router.navigate(['/login']);
+          }
+          else {
+            alert("Informe valores válidos!");
+            console.log(erro);
+          }
+        }
+      );
+    }, 1200);
+    
   }
 
   Submit() {
@@ -85,6 +101,7 @@ export class TelaCadastroComponent implements OnInit {
   userSubmit() {
     console.log(this.formCadastro.value);
     this.saveUser(this.formCadastro.value);
+    this.spinner.show();
   }
 
   roleSubmit() {

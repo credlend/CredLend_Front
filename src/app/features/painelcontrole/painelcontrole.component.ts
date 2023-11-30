@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { InvestmentOperation } from 'src/app/models/InvestmentOperation';
 import { InvestmentPlan } from 'src/app/models/InvestmentPlan';
 import { LoanOperation } from 'src/app/models/LoanOperation';
@@ -26,7 +27,7 @@ export class PainelcontroleComponent implements OnInit {
   authToken = localStorage.getItem('authToken');
   authObject = JSON.parse(this.authToken!);
 
-  constructor(private fb: FormBuilder, private planService: PlanService, private operationService: OperationService) 
+  constructor(private fb: FormBuilder, private planService: PlanService, private operationService: OperationService, private router: Router) 
   {
     this.createFormLoan();
     this.createFormInvestment();
@@ -206,8 +207,13 @@ export class PainelcontroleComponent implements OnInit {
   }
   
 
-  esconderMostrar(){
+  showBalance(){
     this.mostrarSaldo = !this.mostrarSaldo;
+  }
+
+  logOut(){
+    localStorage.removeItem('authToken');
+    this.router.navigate(['/login'])
   }
 
 
