@@ -69,30 +69,32 @@ export class TelaCadastroComponent implements OnInit {
 
   saveUser(user: User) {
     setTimeout(() => {
-      this.spinner.hide();
-    }, 1000);
-    setTimeout(() => {
       this.userService.postRegister(user).subscribe(
         (retorno: User | any) => {
           console.log(retorno);
         },
         (erro: HttpErrorResponse) => {
           if (erro.status === 200) {
-            alert("Usuário cadastrado com sucesso!");
             console.log(erro);
-            this.router.navigate(['/login']);
+            setTimeout(() => {
+              alert("Usuário cadastrado com sucesso!");
+              this.spinner.hide();
+              this.router.navigate(['/login']);
+            }, 1000);
           }
           else {
             alert("Informe valores válidos!");
+            this.spinner.hide();
             console.log(erro);
           }
         }
       );
-    }, 1200);
-    
+    }, 1000);
+
   }
 
   Submit() {
+    this.spinner.show();
     setTimeout(() => {
       this.roleSubmit();
     }, 2000);
@@ -101,19 +103,19 @@ export class TelaCadastroComponent implements OnInit {
   userSubmit() {
     console.log(this.formCadastro.value);
     this.saveUser(this.formCadastro.value);
-    this.spinner.show();
   }
 
   roleSubmit() {
     this.patchValueRole();
     this.putRole(this.formRole.value);
-    console.log(this.formRole.value)
+    console.log(this.formRole.value);
   }
 
   putRole(role: Role) {
     this.roleService.put(role).subscribe(
       (retorno: Role | any) => {
         console.log(retorno);
+        this.spinner.hide();
       },
       (erro: any) => {
         console.log(erro);
