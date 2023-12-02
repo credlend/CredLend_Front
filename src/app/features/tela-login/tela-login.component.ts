@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -10,12 +10,16 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './tela-login.component.html',
   styleUrls: ['./tela-login.component.css']
 })
-export class TelaLoginComponent {
+export class TelaLoginComponent implements OnInit {
   title = 'CredLendLogin';
   formLogin!: FormGroup;
 
   constructor(private fb: FormBuilder, private userService: UserService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormLogin();
+  }
+
+  ngOnInit(): void {
+    localStorage.removeItem("authToken");
   }
 
   createFormLogin() {
