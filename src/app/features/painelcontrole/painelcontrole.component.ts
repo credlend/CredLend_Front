@@ -20,8 +20,8 @@ export class PainelcontroleComponent implements OnInit {
   public mostrarSaldo = false;
   formLoan!: FormGroup;
   formInvestment!: FormGroup;
-  id: any[] = ['0ee79c88-05dd-4312-bcaa-ab7f4be04ff9', '2e5a1c6d-210e-4d09-9c5c-14395a91cd13'];
-  idInvestment: any[] = ['04f55ce7-9975-403b-9094-b2a43c18977c', 'de69f98f-c4cb-4e70-b82e-9ae5b897cf2f'];
+  LoanId: any[] = ['41527045-fead-4505-880c-1ba8197329a0', '159598df-bd76-4da0-b204-9fc3795d34fc'];
+  InvestmentId: any[] = ['31a8200d-62ba-4d47-bfb1-061f0a58b7df', '59b1d5c1-046c-498b-8885-4f4710a14e18'];
   loanResult!: any;
   investmentResult!: any;
   authToken = localStorage.getItem('authToken');
@@ -39,13 +39,11 @@ export class PainelcontroleComponent implements OnInit {
 
   createFormLoan() {
     this.formLoan = this.fb.group({
-      typePlan: [''],
       valuePlan: ['', [Validators.required]],
       transactionWay: [''], 
       userID: [''], 
       userName: [''], 
       email: [''], 
-      operationDate: [''],
       isActive: [''],
       paymentTerm: ['',  [Validators.required]],
       interestRate: ['', [Validators.required]] 
@@ -55,12 +53,10 @@ export class PainelcontroleComponent implements OnInit {
   
   setLoanValues(){
     this.formLoan.patchValue({
-      typePlan: this.loanResult.typePlan,
       transactionWay: "pix",
       userID: this.authObject.user.id,
       userName: this.authObject.user.userName,
       email: this.authObject.user.email,
-      operationDate: new Date(),
       isActive: true,
       paymentTerm: this.loanResult.paymentTerm,
       interestRate: this.loanResult.interestRate
@@ -93,9 +89,9 @@ export class PainelcontroleComponent implements OnInit {
   }
 
   getLoanPlan(){
-    if(this.formLoan.get("valuePlan")?.value > 0 && this.formLoan.get("valuePlan")?.value <= 2000)
+    if(this.formLoan.get("valuePlan")?.value > 0 && this.formLoan.get("valuePlan")?.value <= 1500)
     {
-      this.planService.getLoanById(this.id[0]).subscribe(
+      this.planService.getLoanById(this.LoanId[0]).subscribe(
         (retorno: LoanPlan | any) => {
           // console.log(retorno);
           this.loanResult = retorno;
@@ -107,9 +103,9 @@ export class PainelcontroleComponent implements OnInit {
         }
       );
     }
-    else if (this.formLoan.get("valuePlan")?.value > 2000 && this.formLoan.get("valuePlan")?.value <= 4000)
+    else if (this.formLoan.get("valuePlan")?.value > 1500 && this.formLoan.get("valuePlan")?.value <= 3000)
     {
-      this.planService.getLoanById(this.id[1]).subscribe(
+      this.planService.getLoanById(this.LoanId[1]).subscribe(
         (retorno: LoanPlan | any) => {
           console.log(retorno);
           this.loanResult = retorno;
@@ -124,13 +120,11 @@ export class PainelcontroleComponent implements OnInit {
 
   createFormInvestment() {
     this.formInvestment = this.fb.group({
-      typePlan: [''],
       valuePlan: ['', [Validators.required]],
       transactionWay: [''], 
       userID: [''], 
       userName: [''], 
       email: [''], 
-      operationDate: [''],
       isActive: [''],
       returnRate: ['', [Validators.required]],
       returnDeadLine: [''],
@@ -139,9 +133,9 @@ export class PainelcontroleComponent implements OnInit {
 
   getInvestmentPlan(){
     if(this.formInvestment.get("valuePlan")?.value == 0) { alert("Informe um valor maior que 0") }
-    if(this.formInvestment.get("valuePlan")?.value > 1300 && this.formInvestment.get("valuePlan")?.value <= 2800)
+    if(this.formInvestment.get("valuePlan")?.value > 0 && this.formInvestment.get("valuePlan")?.value <= 1500)
     {
-      this.planService.getInvestmentById(this.idInvestment[0]).subscribe(
+      this.planService.getInvestmentById(this.InvestmentId[0]).subscribe(
         (retorno: InvestmentPlan | any) => {
           // console.log(retorno);
           this.investmentResult = retorno;
@@ -152,9 +146,9 @@ export class PainelcontroleComponent implements OnInit {
         }
       );
     }
-    else if (this.formInvestment.get("valuePlan")?.value > 2800 && this.formInvestment.get("valuePlan")?.value <= 4000)
+    else if (this.formInvestment.get("valuePlan")?.value > 1500 && this.formInvestment.get("valuePlan")?.value <= 3000)
     {
-      this.planService.getInvestmentById(this.idInvestment[1]).subscribe(
+      this.planService.getInvestmentById(this.InvestmentId[1]).subscribe(
         (retorno: InvestmentPlan | any) => {
           console.log(retorno);
           this.investmentResult = retorno;
@@ -169,12 +163,10 @@ export class PainelcontroleComponent implements OnInit {
 
   setInvestmentValues(){
     this.formInvestment.patchValue({
-      typePlan: this.investmentResult.typePlan,
       transactionWay: "pix",
       userID: this.authObject.user.id,
       userName: this.authObject.user.userName,
       email: this.authObject.user.email,
-      operationDate: new Date(),
       isActive: true,
       returnRate: this.investmentResult.returnRate,
       returnDeadLine: this.investmentResult.returnDeadLine

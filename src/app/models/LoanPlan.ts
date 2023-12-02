@@ -1,7 +1,6 @@
 export class LoanPlan {
     constructor() {
         this.id = '';
-        this.typePlan = '';
         this.valuePlan = 0;
         this.transactionWay = '';
         this.isActive = true;
@@ -10,7 +9,6 @@ export class LoanPlan {
     }
 
     id!: any;
-    typePlan!: string;
     valuePlan!: number;
     transactionWay!: string;
     isActive!: boolean;

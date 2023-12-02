@@ -1,321 +1,354 @@
-@media (max-width: 2560px){
-    .drop-mobile{
-        display: none;
+@media (max-width: 2560px) {
+    .drop-mobile {
+      display: none;
     }
-}
-
-@media (max-width: 1200px) {
+  }
+  
+  @media (min-width: 1366px) {
+    .cartao aside {
+      margin-right: 30px;
+    }
+    .cont3 aside {
+      float: none;
+      width: 72.5%;
+    }
+  
+    .cont4 aside {
+      float: none;
+      width: 72.5%;
+    }
+  }
+  
+  @media (max-width: 1366px) {
+    .cont3 aside {
+      width: 760px;
+    }
+  
+    .cont4 aside {
+      width: 760px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
     .buttons {
-        margin-left: 15%;
+      margin-left: 15%;
     }
-
-    .cont3 aside{
-        margin-top: 15px;
-        text-align: center;
-        width: 60%;
-        height: 200px;
-        margin-left: 15px;
-        border-radius: 31px;
-        background: linear-gradient(333deg, #02082B 0%, #0D1A60 94.47%);
-        padding: 20px;
+  
+    .cont3 aside {
+      margin-top: 15px;
+      text-align: center;
+      width: 60%;
+      height: 250px;
+      margin-left: 15px;
+      border-radius: 31px;
+      background: linear-gradient(333deg, #02082b 0%, #0d1a60 94.47%);
+      padding: 20px;
     }
-
-    .cont3 .container .info .inputs .valores input{
-        width: 110px;
+  
+    .cont3 .container .info .inputs .valores input {
+      width: 110px;
     }
-
-    .cont4 aside{
-        width: 60%;
-        padding: 20px;
+  
+    .cont4 aside {
+      width: 60%;
+      padding: 20px;
     }
-
-    .cont4 .container .info2 h6{
-        font-size: 12px;
+  
+    .cont4 .container .info2 h6 {
+      font-size: 12px;
     }
-    .cont4 .container .info2 h6:nth-child(1){
-        margin-top: 10px;
+    .cont4 .container .info2 h6:nth-child(1) {
+      margin-top: 10px;
     }
-    .cont4 .container .info2 p{
-        font-size: 12px;
+    .cont4 .container .info2 p {
+      font-size: 12px;
     }
-    .cont4 .container .info2 span{
-        font-size: 12px;
+    .cont4 .container .info2 span {
+      font-size: 12px;
     }
-    .cont4 .container .info .inputs .valores button{
-        margin-top: 10px;
-        margin-left: 50px;
+    .cont4 .container .info .inputs .valores button {
+      margin-top: 10px;
+      /* margin-left: 50px; */
     }
-}
-
-@media (max-width: 1199px){
-    .cont4 .container .info2 h6{
-        font-size: 12px;
+  }
+  
+  @media (max-width: 1199px) {
+    .mTop {
+      margin-top: 10px !important;
     }
-    .cont4 .container .info2 h6:nth-child(1){
-        margin-top: 20px;
+  
+    .cont4 aside {
+      height: 100%;
     }
-    .cont4 .container .info2 p{
-        font-size: 11px;
+  
+    .cont4 .container .info2 h6 {
+      font-size: 12px;
     }
-    .cont4 .container .info2 span{
-        font-size: 12px;
+    .cont4 .container .info2 h6:nth-child(1) {
+      margin-top: 20px;
     }
-    .cont4 .container .info .inputs .valores button{
-        margin-top: 10px;
-        margin-left: 50px;
+    .cont4 .container .info2 p {
+      font-size: 11px;
     }
-}
-
-@media (max-width: 1024px){
-    .cont3 aside{
-        margin-top: 15px;
-        text-align: center;
-        width: 60%;
-        height: 200px;
-        margin-left: 15px;
-        border-radius: 31px;
-        background: linear-gradient(333deg, #02082B 0%, #0D1A60 94.47%);
-        padding: 20px;
+    .cont4 .container .info2 span {
+      font-size: 12px;
     }
-
-    .cont3 .container .info .inputs .valores input{
-        width: 80px;
+    .cont4 .container .info .inputs .valores button {
+      margin-top: 10px;
+      /* margin-left: 50px; */
     }
-
-    .cont3 .container .info .inputs .valores2 button{
-        margin-top: 10px;
+  }
+  
+  @media (max-width: 1024px) {
+    .cont3 aside {
+      margin-top: 15px;
+      text-align: center;
+      width: 60%;
+      height: 250px;
+      margin-left: 15px;
+      border-radius: 31px;
+      background: linear-gradient(333deg, #02082b 0%, #0d1a60 94.47%);
+      padding: 20px;
     }
-
-}
-
-@media (min-width: 740px) and (max-width: 999px){
-    .nav-all{
-        width: 100vw;
-        display: flex;
+  
+    .cont3 .container .info .inputs .valores input {
+      width: 80px;
     }
-
-    .drop-mobile{
-        display: block;
-        justify-content: flex-end;
-        position: absolute;
-        margin-left: 70%;
+  
+    .cont3 .container .info .inputs .valores2 button {
+      margin-top: 10px;
     }
-    .dropdown-mobile{
-        position: absolute;    
+  }
+  
+  @media (min-width: 740px) and (max-width: 999px) {
+    .nav-all {
+      width: 100vw;
+      display: flex;
     }
-}
-
-@media (max-width: 739px){
-    .nav-all{
-        width: 100vw;
-        display: flex;
+  
+    .drop-mobile {
+      display: block;
+      justify-content: flex-end;
+      position: absolute;
+      margin-left: 70%;
     }
-    .drop-mobile{
-        display: block;
-        justify-content: flex-end;
-        position: absolute;
-        margin-left: 60%;
+    .dropdown-mobile {
+      position: absolute;
     }
-    .dropdown-mobile{
-        position: absolute;    
+  }
+  
+  @media (max-width: 739px) {
+    .nav-all {
+      width: 100vw;
+      display: flex;
     }
-}
-
-@media (min-width: 426px) and (max-width: 530px){
-    .nav-all{
-        width: 100vw;
-        display: flex;
+    .drop-mobile {
+      display: block;
+      justify-content: flex-end;
+      position: absolute;
+      margin-left: 60%;
     }
-    .navbar1 img{
-        height: 30px;
+    .dropdown-mobile {
+      position: absolute;
     }
-    .drop-mobile{
-        display: block;
-        justify-content: flex-end;
-        position: absolute;
-        margin-left: 50%;
+  }
+  
+  @media (min-width: 426px) and (max-width: 530px) {
+    .nav-all {
+      width: 100vw;
+      display: flex;
     }
-    .dropdown-mobile{
-        position: absolute;    
+    .navbar1 img {
+      height: 30px;
     }
-    .dropdown-mobile li a{
-        font-size: 10px;    
+    .drop-mobile {
+      display: block;
+      justify-content: flex-end;
+      position: absolute;
+      margin-left: 50%;
     }
-}
-
-@media (max-width: 425px){
-    .nav-all{
-        width: 100vw;
-        display: flex;
+    .dropdown-mobile {
+      position: absolute;
     }
-    .navbar1 img{
-        height: 30px;
+    .dropdown-mobile li a {
+      font-size: 10px;
     }
-    .drop-mobile{
-        display: block;
-        justify-content: flex-end;
-        position: absolute;
-        margin-left: 50%;
+  }
+  
+  @media (max-width: 425px) {
+    .nav-all {
+      width: 100vw;
+      display: flex;
     }
-    .dropdown-mobile{
-        position: absolute;    
+    .navbar1 img {
+      height: 30px;
     }
-    .dropdown-mobile li a{
-        font-size: 10px;    
+    .drop-mobile {
+      display: block;
+      justify-content: flex-end;
+      position: absolute;
+      margin-left: 50%;
     }
-}
-
-@media (max-width: 999px){
-
-    .cont1{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .dropdown-mobile {
+      position: absolute;
     }
-
+    .dropdown-mobile li a {
+      font-size: 10px;
+    }
+  }
+  
+  @media (max-width: 999px) {
+    .cont1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
     .drop-pc,
-    .navbar-toggler{
-        display: none;
+    .navbar-toggler {
+      display: none;
     }
-
+  
     .buttons {
-        display: none;
+      display: none;
     }
-
-    .cartao aside{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 2px;
+  
+    .cartao aside {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 2px;
     }
-
-    .cartao aside img{
-        height: 150px;
-        width: 280px;
+  
+    .cartao aside img {
+      height: 150px;
+      width: 280px;
     }
-    .cont3 aside{
-        width: 100%;
+    .cont3 aside {
+      width: 100%;
+      height: 100%;
     }
-
-    .cont3 .container .info .inputs{
-        display: flex;
-        width: 50vw;
+  
+    .cont3 .container .info .inputs {
+      display: flex;
+      width: 50vw;
     }
-
-    .cont3 .container .info .inputs .valores input{
-        width: 130px;
+  
+    .cont3 .container .info .inputs .valores input {
+      width: 130px;
     }
-
-    .cont4 aside{
-        width: 100%;
+  
+    .cont4 aside {
+      width: 100%;
+      height: 100%;
     }
-
-    .cont4 .container .info2{
-        margin-left: 20px;
+  
+    .cont4 .container .info2 {
+      /* margin-left: 20px; */
     }
-}
-
-@media (max-width: 450px){
-    .cont3 .container .info .inputs .valores input{
-        width: 90px;
+  }
+  
+  @media (max-width: 450px) {
+    .cont3 .container .info .inputs .valores input {
+      width: 90px;
     }
-
-    .cont3 .container .total button{
-        margin-bottom: 10px;
+  
+    .cont3 .container .total button {
+      margin-bottom: 10px;
     }
-
-    .cont3 .info h5{
-        font-size: 16px;
+  
+    .cont3 .info h5 {
+      font-size: 16px;
     }
-
-    .cont3 .container .info .inputs .valores2 button{
-        width: 90px;
-        margin-bottom: 10px;
-        margin-top: 15px;
+  
+    .cont3 .container .info .inputs .valores2 button {
+      width: 90px;
+      margin-bottom: 10px;
+      margin-top: 15px;
     }
-
-    .cont3 .container .info .inputs .valores2 input{
-        width: 90px;
+  
+    .cont3 .container .info .inputs .valores2 input {
+      width: 90px;
     }
-
-    .cont3 .container .info .inputs .valores input{
-        width: 90px;
-        margin-left: 5px;
+  
+    .cont3 .container .info .inputs .valores input {
+      width: 90px;
+      margin-left: 5px;
     }
-
-    .cont3 .container .info .inputs .valores select{
-        width: 90px;
-        margin: 5px;
+  
+    .cont3 .container .info .inputs .valores select {
+      width: 90px;
+      margin: 5px;
     }
-
-    .cont4 .info h5{
-        font-size: 16px;
+  
+    .cont4 .info h5 {
+      font-size: 16px;
     }
-    
-    .cont4 .container .info .inputs .valores button{
-        width: 90px;
-        margin-left: 30px;
+  
+    .cont4 .container .info .inputs .valores button {
+      width: 90px;
+      margin-left: 30px;
     }
-
-    .cont4 .container .info .inputs .valores select{
-        width: 90px;
-        margin: 5px 30px;
+  
+    .cont4 .container .info .inputs .valores select {
+      width: 90px;
+      margin: 5px 30px;
     }
-
-    .cont4 .container .info2{
-        margin-left: 50px;
+  
+    .cont4 .container .info2 {
+      /* margin-left: 50px; */
     }
-}
-
-@media (min-width: 450px) and (max-width: 600px){
-    .cont3 .container .info .inputs .valores input{
-        width: 90px;
+  }
+  
+  @media (min-width: 450px) and (max-width: 600px) {
+    .cont3 .container .info .inputs .valores input {
+      width: 90px;
     }
-
-    .cont3 .container .total button{
-        margin-bottom: 10px;
+  
+    .cont3 .container .total button {
+      margin-bottom: 10px;
     }
-
-    .cont3 .info h5{
-        font-size: 16px;
+  
+    .cont3 .info h5 {
+      font-size: 16px;
     }
-
-    .cont3 .container .info .inputs .valores2 button{
-        width: 90px;
-        margin-bottom: 10px;
-        margin-top: 15px;
+  
+    .cont3 .container .info .inputs .valores2 button {
+      width: 90px;
+      margin-bottom: 10px;
+      margin-top: 15px;
     }
-
-    .cont3 .container .info .inputs .valores2 input{
-        width: 90px;
+  
+    .cont3 .container .info .inputs .valores2 input {
+      width: 90px;
     }
-
-    .cont3 .container .info .inputs .valores input{
-        width: 90px;
-        margin-left: 5px;
+  
+    .cont3 .container .info .inputs .valores input {
+      width: 90px;
+      margin-left: 5px;
     }
-
-    .cont3 .container .info .inputs .valores select{
-        width: 90px;
-        margin: 5px;
+  
+    .cont3 .container .info .inputs .valores select {
+      width: 90px;
+      margin: 5px;
     }
-
-    .cont4 .info h5{
-        font-size: 16px;
+  
+    .cont4 .info h5 {
+      font-size: 16px;
     }
-    
-    .cont4 .container .info .inputs .valores button{
-        width: 90px;
-        margin-left: 30px;
+  
+    .cont4 .container .info .inputs .valores button {
+      width: 90px;
+      margin-left: 30px;
     }
-
-    .cont4 .container .info .inputs .valores select{
-        width: 90px;
-        margin: 5px 30px;
+  
+    .cont4 .container .info .inputs .valores select {
+      width: 90px;
+      margin: 5px 30px;
     }
-
-    .cont4 .container .info2{
-        margin-left: 50px;
+  
+    .cont4 .container .info2 {
+      /* margin-left: 50px; */
     }
-}
+  }

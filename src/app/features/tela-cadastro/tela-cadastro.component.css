@@ -1,11 +1,8 @@
-/* @font-face {
-  font-family: "Krona One";
-  src: url("/assets/KronaOne.woff2") format("woff2"),
-    url("/assets/KronaOne.woff") format("woff");
-} */
+*{
+  font-family: "Montserrat";
+}
 
 body {
-  font-family: "Krona One", sans-serif;
   margin: 0;
   text-align: center !important;
   padding: 0;
@@ -13,12 +10,6 @@ body {
   min-width: 520px;
   min-height: 600px;
   z-index: 0;
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Krona One", sans-serif;
 }
 
 .half1 {
@@ -36,7 +27,6 @@ h3 {
   align-items: center;
   justify-content: center;
   background-color: #01072a;
-  font-family: "Krona One", sans-serif;
 }
 
 .half2 {
@@ -82,18 +72,28 @@ h3 {
   z-index: 0;
 }
 
+.Apple svg{
+  margin-bottom: 2%;
+}
+
 .AppleAut {
   justify-content: center;
   align-items: center;
   background-color: black;
   color: white;
-  width: 310px;
+  width: 69%;
   height: 50px;
   border-radius: 10px;
   margin: 1%;
-  z-index: 1;
+  z-index: 0;
   cursor: pointer;
+}
 
+.Apple p {
+  font-weight: 500;
+  margin-left: 2%;
+  margin-top: 4%;
+  align-items: center;
 }
 
 .Google {
@@ -104,18 +104,16 @@ h3 {
   z-index: 0;
 }
 
-.Apple > p {
-  margin-left: 2%;
-  margin-top: 4%;
-  align-items: center;
+.Google svg{
+  margin-bottom: 1%;
 }
 
+
 .GoogleAut {
-  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  color: black;
+  background-color: #FFF;
+  color: #000;
   width: 69%;
   height: 50px;
   border-radius: 10px;
@@ -124,10 +122,11 @@ h3 {
   cursor: pointer;
 }
 
-.Google > p {
+.Google p {
+  font-weight: 700;
   text-align: center;
   margin-left: 5px;
-  margin-top: 5%;
+  margin-top: 4%;
   display: flex;
   align-items: center;
 }
@@ -144,10 +143,6 @@ h3 {
 
 .ou > p {
   margin: 2%;
-}
-
-body {
-  font-family: Arial, sans-serif;
 }
 
 .form-container {
@@ -242,6 +237,7 @@ input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-weight: 600;
 }
 
 .password-input {
@@ -266,6 +262,7 @@ input {
   font-size: 16px;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .criar-conta button {
@@ -281,6 +278,7 @@ input {
   border-radius: 10px;
   cursor: pointer;
   z-index: 1;
+  font-weight: 700;
 }
 
 .texto {
@@ -300,6 +298,7 @@ input {
 .texto h3 {
   font-size: 16px;
   margin: 1%;
+  font-size: 1.1rem;
 }
 
 .icone {
@@ -331,6 +330,10 @@ input {
 
 .conta {
   margin-top: 35%;
+}
+
+.conta h2{
+  font-size: 1.5rem;
 }
 
 .elipse-container {

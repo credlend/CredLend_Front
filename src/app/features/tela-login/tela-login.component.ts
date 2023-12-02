@@ -26,21 +26,23 @@ export class TelaLoginComponent {
   }
 
   loginUser(user: User) {
-    this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 1000);
     setTimeout(() => {
       this.userService.postLogin(user).subscribe(
         (token: string | any) => {
-          alert("Usuário logado com sucesso !");
-          console.log(token);
-          localStorage.setItem('authToken', token);
-          this.router.navigate(["/painelcontrole"])
+          this.spinner.hide();
+          setTimeout(() => {
+            alert("Usuário logado com sucesso !");
+            console.log(token);
+            localStorage.setItem('authToken', token);
+            this.router.navigate(["/painelcontrole"])
+          }, 100);
         },
         (erro: any) => {
-          console.log(erro);
-          alert("O usuário não existe!");
+          this.spinner.hide();
+          setTimeout(() => {
+            alert("O usuário não existe!");
+            console.log(erro);
+          }, 100);
         }
       );
     }, 1200);
@@ -49,6 +51,7 @@ export class TelaLoginComponent {
   Submit() {
     console.log(this.formLogin.value);
     this.loginUser(this.formLogin.value);
+    this.spinner.show();
   }
 
 }
