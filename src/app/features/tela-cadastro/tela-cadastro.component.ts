@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Role } from 'src/app/models/Role';
 import { User } from 'src/app/models/User';
+import { CustomValidator } from 'src/app/services/customValidators';
 import { RoleService } from 'src/app/services/role.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -31,13 +32,13 @@ export class TelaCadastroComponent implements OnInit {
     this.formCadastro = this.fb.group({
       completeName: ['', [Validators.required]],
       userName: ['', [Validators.required]],
-      cpf: ['', [Validators.required]],
+      cpf: ['', [Validators.required, CustomValidator.isValidCpf()]],
       birthDate: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, CustomValidator.senhaComplexaValidator]],
       confirmPassword: ['', [Validators.required]],
       isActive: [true]
-    });
+    }, { validators: this.checkPasswords });
   }
 
   createFormRole() {
@@ -102,6 +103,12 @@ export class TelaCadastroComponent implements OnInit {
         console.log(erro);
       }
     );
+  }
+
+  checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 
+    let pass = group.get('password')?.value;
+    let confirmPass = group.get('confirmPassword')?.value
+    return pass === confirmPass ? null : { notSame: true }
   }
 
 }

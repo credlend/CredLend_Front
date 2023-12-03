@@ -96,6 +96,9 @@
                       </div>
                     </div>
                   </div>
+                  <div class="alert_text2" *ngIf="formLogin.get('email')?.getError('email') && (formLogin.get('email')?.touched && formLogin.get('email')?.dirty)">
+                    *O Email informado não é valido.
+                  </div>
 
                   <div class="form-group-senha">
                     <div class="senha2">
@@ -110,6 +113,9 @@
                         />
                       </div>
                     </div>
+                  </div>
+                  <div class="alert_text" *ngIf="formLogin.get('password')?.getError('senhaInvalida') && (formLogin.get('password')?.touched && formLogin.get('password')?.dirty)">
+                    A senha deve ter pelo menos 4 caracteres, 1 número, 1 letra maiúscula, 1 letra minúscula e 1 caractere especial
                   </div>
 
                   <div class="Entrar">

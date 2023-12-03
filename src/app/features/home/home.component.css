@@ -1,3 +1,9 @@
+.home_container{
+    /* display: flex; */
+    /* justify-content: space-between; */
+    min-width: 590px;
+}
+
 .header_rectangle {
     background: linear-gradient(270deg, #000729 11.18%, #0A1449 73.08%);
     box-shadow: 0px -2px 13px 25px rgba(0, 0, 0, 0.36);
@@ -256,4 +262,5 @@
     background: #FFF500;
 
 }
+
 

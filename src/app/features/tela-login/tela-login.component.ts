@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/User';
 import { AuthInterceptor } from 'src/app/services/authinterceptor';
+import { CustomValidator } from 'src/app/services/customValidators';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -19,8 +20,8 @@ export class TelaLoginComponent {
 
   createFormLogin() {
     this.formLogin = this.fb.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, CustomValidator.senhaComplexaValidator]]
     });
   }
 

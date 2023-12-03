@@ -17,6 +17,15 @@ h3 {
   font-family: "Krona One", sans-serif;
 }
 
+
+.alert_text{
+  color: red;
+}
+.alert_text2{
+  color: red;
+  text-align: start;
+}
+
 .half1 {
   background-color: #01072a;
   width: 45vw;
