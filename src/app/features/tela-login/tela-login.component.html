@@ -76,6 +76,9 @@
                   ></div>
                 </div>
               </div>
+              <div class="alert_text3 d-flex" *ngIf="requiredForm == false">
+                *Você deve preencher todos os campos para efetuar o cadastro
+              </div>
               <form
                 [formGroup]="formLogin"
                 (submit)="Submit()"

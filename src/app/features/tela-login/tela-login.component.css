@@ -25,6 +25,13 @@ h3 {
   color: red;
   text-align: start;
 }
+.alert_text3{
+  max-width: 90%;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
 
 .half1 {
   background-color: #01072a;

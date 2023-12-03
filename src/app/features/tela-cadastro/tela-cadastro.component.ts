@@ -17,7 +17,8 @@ export class TelaCadastroComponent implements OnInit {
   public formCadastro!: FormGroup;
   public formRole!: FormGroup;
   token!: string;
-
+  todayDate: Date = new Date();
+  requiredForm: boolean = true;
 
   constructor(private fb: FormBuilder, private userService: UserService, private roleService: RoleService) {
     this.createFormUser();
@@ -25,7 +26,6 @@ export class TelaCadastroComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   createFormUser() {
@@ -69,8 +69,10 @@ export class TelaCadastroComponent implements OnInit {
     this.userService.postRegister(user).subscribe(
       (retorno: User | any) => {
         console.log(retorno);
+        this.requiredForm = true
       },
       (erro: any) => {
+        this.requiredForm = false
         alert("Informe valores válidos!")
         console.log(erro);
       }
@@ -109,6 +111,23 @@ export class TelaCadastroComponent implements OnInit {
     let pass = group.get('password')?.value;
     let confirmPass = group.get('confirmPassword')?.value
     return pass === confirmPass ? null : { notSame: true }
+  }
+
+  actualDate() {
+    debugger;
+    // Obtém a data atual
+    const todayDate = new Date();
+
+    // Obtém o ano, o mês e o dia
+    const ano = todayDate.getFullYear();
+    const mes = todayDate.getMonth() + 1; // O mês começa em 0, então é preciso somar 1
+    const dia = todayDate.getDate();
+
+    // Formata a data com zeros à esquerda se necessário
+    const dataFormatada = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+
+    // Retorna a data formatada
+    return dataFormatada;
   }
 
 }

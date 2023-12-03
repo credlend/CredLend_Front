@@ -13,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class TelaLoginComponent {
   title = 'CredLendLogin';
   formLogin!: FormGroup;
+  requiredForm: boolean = true;
 
   constructor(private fb: FormBuilder, private userService: UserService){
     this.createFormLogin();
@@ -30,11 +31,13 @@ export class TelaLoginComponent {
       (token: string | any) => {
         console.log(token);
         localStorage.setItem('authToken', token);
+        this.requiredForm = true
         // this.authInterceptor.intercept(token, token);
       },
       (erro: any) => {
         console.log(erro);
         alert("O usuário não existe!");
+        this.requiredForm = false
       }
     );
   }
