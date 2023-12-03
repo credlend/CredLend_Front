@@ -105,6 +105,10 @@
     padding: 0px 40px;
 }
 
+.main-container{
+    overflow-x: hidden;
+}
+
 .slogan {
     color: #FFF;
     font-family: "Montserrat";
