@@ -321,7 +321,7 @@ input {
   right: -200vh;
 }
 
-@media (min-width: 1326px) {
+@media (min-width: 1400px) {
   .half1 {
     width: auto;
   }

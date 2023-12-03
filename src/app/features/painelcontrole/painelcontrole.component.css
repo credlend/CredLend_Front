@@ -196,10 +196,7 @@ button:active {
     margin-bottom: 20px;
 }
 
-.form-control {
-    height: 60% !important;
-    border-radius: 5px;
-}
+
 
 .cont3 .container .info .inputs{
     display: flex;

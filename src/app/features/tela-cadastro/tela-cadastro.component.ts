@@ -97,7 +97,7 @@ export class TelaCadastroComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.roleSubmit();
-    }, 2200);
+    }, 3000);
   }
 
   userSubmit() {
