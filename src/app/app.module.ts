@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient } from '@angular/common/http';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +12,8 @@ import { TelaCadastroComponent } from './features/tela-cadastro/tela-cadastro.co
 import { TelaLoginComponent } from './features/tela-login/tela-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './services/authinterceptor';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -30,10 +31,13 @@ import { AuthInterceptor } from './services/authinterceptor';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskDirective,
+    NgxSpinnerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    provideNgxMask()
   ],
   bootstrap: [AppComponent]
 })

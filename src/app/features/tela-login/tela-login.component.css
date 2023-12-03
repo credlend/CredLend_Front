@@ -1,11 +1,10 @@
-@font-face {
-  font-family: "Krona One";
-  src: url("/assets/KronaOne.woff2") format("woff2"),
-    url("/assets/KronaOne.woff") format("woff");
+/* @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap'); */
+
+*{
+  font-family: "Montserrat"
 }
 
 body {
-  font-family: "Krona One", sans-serif;
   margin: 0;
   text-align: center !important;
   padding: 0;
@@ -13,12 +12,6 @@ body {
   min-width: 520px;
   min-height: 530px;
   z-index: 0;
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Krona One", sans-serif;
 }
 
 .half1 {
@@ -35,9 +28,7 @@ h3 {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
   background-color: #01072a;
-  font-family: "Krona One", sans-serif;
 }
 
 .half2 {
@@ -83,6 +74,10 @@ h3 {
   z-index: 0;
 }
 
+.Apple svg{
+  margin-bottom: 2%;
+}
+
 .AppleAut {
   justify-content: center;
   align-items: center;
@@ -96,6 +91,13 @@ h3 {
   cursor: pointer;
 }
 
+.Apple p {
+  font-weight: 500;
+  margin-left: 2%;
+  margin-top: 4%;
+  align-items: center;
+}
+
 .Google {
   flex-direction: row;
   display: flex;
@@ -104,18 +106,16 @@ h3 {
   z-index: 0;
 }
 
-.Apple p {
-  margin-left: 2%;
-  margin-top: 4%;
-  align-items: center;
+.Google svg{
+  margin-bottom: 1%;
 }
 
+
 .GoogleAut {
-  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  color: black;
+  background-color: #FFF;
+  color: #000;
   width: 69%;
   height: 50px;
   border-radius: 10px;
@@ -125,9 +125,10 @@ h3 {
 }
 
 .Google p {
+  font-weight: 700;
   text-align: center;
   margin-left: 5px;
-  margin-top: 5%;
+  margin-top: 4%;
   display: flex;
   align-items: center;
 }
@@ -146,9 +147,6 @@ h3 {
   margin: 2%;
 }
 
-body {
-  font-family: Arial, sans-serif;
-}
 
 .form-container {
   width: 450px;
@@ -188,6 +186,7 @@ input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-weight: 600;
 }
 
 .password-input {
@@ -212,6 +211,7 @@ input {
   background-color: #fff500;
   color: black;
   font-size: 16px;
+  font-weight: 700;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -226,6 +226,7 @@ input {
   background-color: #fff500;
   color: black;
   font-size: 16px;
+  font-weight: 700;
   border-radius: 10px;
   cursor: pointer;
 }
@@ -245,7 +246,7 @@ input {
 }
 
 .texto h3 {
-  font-size: 16px;
+  font-size: 1.1rem;
   margin: 1%;
 }
 
@@ -278,6 +279,10 @@ input {
 
 .conta {
   margin-top: 35%;
+}
+
+.conta h2{
+  font-size: 1.5rem;
 }
 
 .elipse-container {
@@ -316,7 +321,7 @@ input {
   right: -200vh;
 }
 
-@media (min-width: 1326px) {
+@media (min-width: 1400px) {
   .half1 {
     width: auto;
   }
