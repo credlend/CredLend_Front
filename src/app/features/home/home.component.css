@@ -111,9 +111,13 @@
     padding: 0px 40px;
 }
 
+.main-container{
+    overflow-x: hidden;
+}
+
 .slogan {
     color: #FFF;
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
@@ -132,7 +136,7 @@
 
 .slogan_subtitle {
     color: rgba(255, 255, 255, 0.58);
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -148,7 +152,7 @@
 
 .title1 {
     color: #000;
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -157,7 +161,7 @@
 
 .sub_title1 {
     color: #004AF5;
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -167,7 +171,7 @@
 .title2 {
     color: #000;
     text-align: center;
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
@@ -181,7 +185,7 @@
 
 .title3 {
     color: #FFF;
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
@@ -206,7 +210,7 @@
 
 .sub_title2 {
     color: #999;
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -216,7 +220,7 @@
 
 .sub_title3 {
     color: #FFF500;
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
@@ -225,7 +229,7 @@
 
 .sub_title4{
     color: #0249F4;
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -235,7 +239,7 @@
 .button_planos_subtitle {
     color: #FFF;
 
-    font-family: Krona One;
+    font-family: "Montserrat";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Role } from 'src/app/models/Role';
 import { User } from 'src/app/models/User';
 import { CustomValidator } from 'src/app/services/customValidators';
@@ -20,7 +22,7 @@ export class TelaCadastroComponent implements OnInit {
   todayDate: Date = new Date();
   requiredForm: boolean = true;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private roleService: RoleService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private roleService: RoleService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormUser();
     this.createFormRole();
   }
@@ -66,23 +68,37 @@ export class TelaCadastroComponent implements OnInit {
   }
 
   saveUser(user: User) {
-    this.userService.postRegister(user).subscribe(
-      (retorno: User | any) => {
-        console.log(retorno);
-        this.requiredForm = true
-      },
-      (erro: any) => {
-        this.requiredForm = false
-        alert("Informe valores válidos!")
-        console.log(erro);
-      }
-    );
+    setTimeout(() => {
+      this.userService.postRegister(user).subscribe(
+        (retorno: User | any) => {
+          console.log(retorno);
+          this.requiredForm = true    
+        },
+        (erro: HttpErrorResponse) => {
+          if (erro.status === 200) {
+            console.log(erro);
+            this.requiredForm = false
+            setTimeout(() => {
+              alert("Usuário cadastrado com sucesso!");
+              this.spinner.hide();
+              this.router.navigate(['/login']);
+            }, 1000);
+          }
+          else {
+            alert("Informe valores válidos!");
+            this.spinner.hide();
+            console.log(erro);
+          }
+        }
+      );
+    }, 1000);
   }
 
   Submit() {
+    this.spinner.show();
     setTimeout(() => {
       this.roleSubmit();
-    }, 2000);
+    }, 3000);
   }
 
   userSubmit() {
@@ -93,13 +109,14 @@ export class TelaCadastroComponent implements OnInit {
   roleSubmit() {
     this.patchValueRole();
     this.putRole(this.formRole.value);
-    console.log(this.formRole.value)
+    console.log(this.formRole.value);
   }
 
   putRole(role: Role) {
     this.roleService.put(role).subscribe(
       (retorno: Role | any) => {
         console.log(retorno);
+        this.spinner.hide();
       },
       (erro: any) => {
         console.log(erro);
