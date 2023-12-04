@@ -11,7 +11,20 @@ body {
   min-height: 600px;
   z-index: 0;
 }
-
+.alert_text{
+  color: red;
+}
+.alert_text2{
+  color: red;
+  text-align: start;
+}
+.alert_text3{
+  max-width: 80%;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
 .half1 {
   background-color: #01072a;
   width: 45vw;
@@ -364,7 +377,7 @@ input {
 .elipse3 {
   position: relative;
   width: 400px;
-  height: 1000px;
+  height: 100px;
   background-color: #1e61ae;
   filter: blur(270px);
   border-radius: 80%;
@@ -409,4 +422,8 @@ input {
   .icone {
     margin-top: 5%;
   }
+}
+
+body {
+  min-height: 750px;
 }

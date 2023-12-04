@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { User } from 'src/app/models/User';
+import { AuthInterceptor } from 'src/app/services/authinterceptor';
+import { CustomValidator } from 'src/app/services/customValidators';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,6 +15,7 @@ import { UserService } from 'src/app/services/user.service';
 export class TelaLoginComponent implements OnInit {
   title = 'CredLendLogin';
   formLogin!: FormGroup;
+  requiredForm: boolean = true;
 
   constructor(private fb: FormBuilder, private userService: UserService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormLogin();
@@ -24,8 +27,8 @@ export class TelaLoginComponent implements OnInit {
 
   createFormLogin() {
     this.formLogin = this.fb.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, CustomValidator.senhaComplexaValidator]]
     });
   }
 
@@ -34,6 +37,7 @@ export class TelaLoginComponent implements OnInit {
       this.userService.postLogin(user).subscribe(
         (token: string | any) => {
           this.spinner.hide();
+          this.requiredForm = true
           setTimeout(() => {
             alert("Usuário logado com sucesso !");
             console.log(token);
@@ -43,6 +47,7 @@ export class TelaLoginComponent implements OnInit {
         },
         (erro: any) => {
           this.spinner.hide();
+          this.requiredForm = false
           setTimeout(() => {
             alert("O usuário não existe!");
             console.log(erro);
