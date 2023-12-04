@@ -10,7 +10,7 @@ body {
   padding: 0;
   background-color: #01072a;
   min-width: 520px;
-  min-height: 530px;
+  min-height: 600px ;
   z-index: 0;
 }
 .alert_text{
@@ -21,11 +21,11 @@ body {
   text-align: start;
 }
 .alert_text3{
-  max-width: 90%;
+  /* max-width: 90%; */
   color: red;
   text-align: center;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 15px;
 }
 .half1 {
   background-color: #01072a;

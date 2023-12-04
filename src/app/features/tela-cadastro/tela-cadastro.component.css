@@ -1,16 +1,20 @@
-*{
-  font-family: "Montserrat";
-}
+/* @font-face {
+  font-family: "Krona One";
+  src: url("/assets/KronaOne.woff2") format("woff2"),
+    url("/assets/KronaOne.woff") format("woff");
+} */
 
 body {
+  font-family: "Montserrat";
   margin: 0;
   text-align: center !important;
   padding: 0;
   background-color: #01072a;
   min-width: 520px;
-  min-height: 600px;
+  min-height: 710px !important;
   z-index: 0;
 }
+
 .alert_text{
   color: red;
 }
@@ -19,11 +23,11 @@ body {
   text-align: start;
 }
 .alert_text3{
-  max-width: 80%;
+  /* max-width: 80%; */
   color: red;
   text-align: center;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 15px;
 }
 .half1 {
   background-color: #01072a;
@@ -40,6 +44,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #01072a;
+  font-family: "Krona One", sans-serif;
 }
 
 .half2 {
@@ -85,28 +90,18 @@ body {
   z-index: 0;
 }
 
-.Apple svg{
-  margin-bottom: 2%;
-}
-
 .AppleAut {
   justify-content: center;
   align-items: center;
   background-color: black;
   color: white;
-  width: 69%;
+  width: 310px;
   height: 50px;
   border-radius: 10px;
   margin: 1%;
-  z-index: 0;
+  z-index: 1;
   cursor: pointer;
-}
 
-.Apple p {
-  font-weight: 500;
-  margin-left: 2%;
-  margin-top: 4%;
-  align-items: center;
 }
 
 .Google {
@@ -117,16 +112,18 @@ body {
   z-index: 0;
 }
 
-.Google svg{
-  margin-bottom: 1%;
+.Apple > p {
+  margin-left: 2%;
+  margin-top: 4%;
+  align-items: center;
 }
 
-
 .GoogleAut {
+  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FFF;
-  color: #000;
+  background-color: white;
+  color: black;
   width: 69%;
   height: 50px;
   border-radius: 10px;
@@ -135,11 +132,10 @@ body {
   cursor: pointer;
 }
 
-.Google p {
-  font-weight: 700;
+.Google > p {
   text-align: center;
   margin-left: 5px;
-  margin-top: 4%;
+  margin-top: 5%;
   display: flex;
   align-items: center;
 }
@@ -156,6 +152,10 @@ body {
 
 .ou > p {
   margin: 2%;
+}
+
+body {
+  font-family: Arial, sans-serif;
 }
 
 .form-container {
@@ -250,7 +250,6 @@ input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-weight: 600;
 }
 
 .password-input {
@@ -275,7 +274,6 @@ input {
   font-size: 16px;
   border-radius: 10px;
   cursor: pointer;
-  font-weight: 700;
 }
 
 .criar-conta button {
@@ -291,7 +289,6 @@ input {
   border-radius: 10px;
   cursor: pointer;
   z-index: 1;
-  font-weight: 700;
 }
 
 .texto {
@@ -311,7 +308,6 @@ input {
 .texto h3 {
   font-size: 16px;
   margin: 1%;
-  font-size: 1.1rem;
 }
 
 .icone {
@@ -343,10 +339,6 @@ input {
 
 .conta {
   margin-top: 35%;
-}
-
-.conta h2{
-  font-size: 1.5rem;
 }
 
 .elipse-container {
@@ -414,7 +406,7 @@ input {
   }
 
   body {
-    min-height: 1150px;
+    min-height: 1250px !important;
   }
 }
 
@@ -424,6 +416,3 @@ input {
   }
 }
 
-body {
-  min-height: 750px;
-}

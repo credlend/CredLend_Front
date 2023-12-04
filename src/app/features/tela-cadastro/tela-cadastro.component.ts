@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Role } from 'src/app/models/Role';
 import { User } from 'src/app/models/User';
@@ -77,7 +78,6 @@ export class TelaCadastroComponent implements OnInit {
         (erro: HttpErrorResponse) => {
           if (erro.status === 200) {
             console.log(erro);
-            this.requiredForm = false
             setTimeout(() => {
               alert("Usuário cadastrado com sucesso!");
               this.spinner.hide();
@@ -85,6 +85,7 @@ export class TelaCadastroComponent implements OnInit {
             }, 1000);
           }
           else {
+            this.requiredForm = false
             alert("Informe valores válidos!");
             this.spinner.hide();
             console.log(erro);
@@ -98,7 +99,7 @@ export class TelaCadastroComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.roleSubmit();
-    }, 3000);
+    }, 5000);
   }
 
   userSubmit() {

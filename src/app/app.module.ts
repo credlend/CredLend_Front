@@ -8,12 +8,12 @@ import { PainelcontroleComponent } from './features/painelcontrole/painelcontrol
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './features/home/home.component';
-import { TelaCadastroComponent } from './features/tela-cadastro/tela-cadastro.component';
-import { TelaLoginComponent } from './features/tela-login/tela-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './services/authinterceptor';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { TelaLoginComponent } from './features/tela-login/tela-login.component';
+import { TelaCadastroComponent } from './features/tela-cadastro/tela-cadastro.component';
 
 
 @NgModule({
