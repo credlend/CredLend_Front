@@ -86,7 +86,6 @@ export class TelaCadastroComponent implements OnInit {
           }
           else {
             this.requiredForm = false
-            alert("Informe valores válidos!");
             this.spinner.hide();
             console.log(erro);
           }
