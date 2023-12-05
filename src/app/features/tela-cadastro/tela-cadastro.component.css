@@ -22,10 +22,12 @@ body {
 .alert_text2{
   color: red;
   text-align: start;
+  font-size: 15px;
 }
 .alert_text3{
   /* max-width: 80%; */
   color: red;
+  font-size: 15px;
   text-align: center;
   font-weight: bold;
   font-size: 15px;
@@ -110,6 +112,7 @@ body {
 
 .AppleAut:active {
   transform: scale(0.98);
+  transition: all 0.1s;
 }
 
 .Apple p {
@@ -147,6 +150,7 @@ body {
 
 .GoogleAut:active {
   transform: scale(0.98);
+  transition: all 0.1s;
 }
 
 .Google p {
@@ -296,6 +300,25 @@ input {
   cursor: pointer;
 }
 
+.Entrar button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button{
+  border: none;
+}
+
+button:not([disabled]):active {
+  transform: scale(0.98);
+}
+
+button:not([disabled]):hover{
+  filter: drop-shadow(3px 2px 2px #000);
+  transition: all 0.2s;
+}
+
+
 .criar-conta button {
   position: relative;
   align-items: center;
@@ -366,18 +389,6 @@ input {
   font-size: 1.5em;
 }
 
-button{
-  border: none;
-}
-
-button:active {
-  transform: scale(0.98);
-}
-
-button:hover{
-  filter: drop-shadow(3px 2px 2px #000);
-  transition: all 0.2s;
-}
 
 .elipse-container {
   position: absolute;
@@ -445,6 +456,10 @@ button:hover{
 
   body {
     min-height: 1250px !important;
+  }
+
+  .criar-conta button{
+    margin-bottom: 30px;
   }
 }
 

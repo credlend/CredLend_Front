@@ -109,6 +109,7 @@ body {
 
 .AppleAut:active {
   transform: scale(0.98);
+  transition: all 0.1s;
 }
 
 .Apple p {
@@ -146,6 +147,7 @@ body {
 
 .GoogleAut:active {
   transform: scale(0.98);
+  transition: all 0.1s;
 }
 
 .Google p {
@@ -339,11 +341,16 @@ button{
   border: none;
 }
 
-button:active {
+.Entrar button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:not([disabled]):active {
   transform: scale(0.98);
 }
 
-button:hover{
+button:not([disabled]):hover{
   filter: drop-shadow(3px 2px 2px #000);
   transition: all 0.2s;
 }

@@ -148,23 +148,23 @@ export class TelaCadastroComponent implements OnInit {
     return dataFormatada;
   }
 
-  showErros() {
-    if(this.formCadastro.get('cpf')?.invalid){
-      this.erros = 1;
-    }
-    else if(this.formCadastro.get('cpf')?.valid && this.formCadastro.get('email')?.invalid){
-      this.erros = 2;
-    }
-    else if(this.formCadastro.get('email')?.valid && this.formCadastro.get('password')?.invalid){
-      this.erros = 3;
-    }
-    else if(this.formCadastro.get('password')?.valid && this.formCadastro?.getError('notSame')){
-      this.erros = 4;
-    }
-    else if(!this.formCadastro?.getError('notSame') && this.formCadastro.invalid){
-      this.erros = 5;
-    }
-    else if(this.formCadastro.valid)
-    this.erros = 0;
-  }
+  // showErros() {
+  //   if(this.formCadastro.get('cpf')?.invalid){
+  //     this.erros = 1;
+  //   }
+  //   else if(this.formCadastro.get('cpf')?.valid && this.formCadastro.get('email')?.invalid){
+  //     this.erros = 2;
+  //   }
+  //   else if(this.formCadastro.get('email')?.valid && this.formCadastro.get('password')?.invalid){
+  //     this.erros = 3;
+  //   }
+  //   else if(this.formCadastro.get('password')?.valid && this.formCadastro?.getError('notSame')){
+  //     this.erros = 4;
+  //   }
+  //   else if(!this.formCadastro?.getError('notSame') && this.formCadastro.invalid){
+  //     this.erros = 5;
+  //   }
+  //   else if(this.formCadastro.valid)
+  //   this.erros = 0;
+  // }
 }
