@@ -48,9 +48,9 @@ export class TelaLoginComponent implements OnInit {
         },
         (erro: any) => {
           this.spinner.hide();
-          this.requiredForm = false
+          // this.requiredForm = false
           setTimeout(() => {
-            alert("O usuário não existe!");
+            alert("O usuário não encontrado!");
             console.log(erro);
           }, 100);
         }
@@ -64,17 +64,17 @@ export class TelaLoginComponent implements OnInit {
     this.spinner.show();
   }
 
-  showErros() {
-    if(this.formLogin.get('email')?.invalid){
-      this.erros = 1;
-    }
-    else if(this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid){
-      this.erros = 2;
-    }
-    else if(this.formLogin.get('password')?.valid && this.formLogin.invalid){
-      this.erros = 3;
-    }
-    else if(this.formLogin.valid)
-    this.erros = 0;
-  }
+  // showErros() {
+  //   if(this.formLogin.get('email')?.invalid){
+  //     this.erros = 1;
+  //   }
+  //   else if(this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid){
+  //     this.erros = 2;
+  //   }
+  //   else if(this.formLogin.get('password')?.valid && this.formLogin.invalid){
+  //     this.erros = 3;
+  //   }
+  //   else if(this.formLogin.valid)
+  //   this.erros = 0;
+  // }
 }

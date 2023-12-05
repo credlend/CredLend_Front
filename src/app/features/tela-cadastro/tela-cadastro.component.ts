@@ -86,9 +86,10 @@ export class TelaCadastroComponent implements OnInit {
             }, 1000);
           }
           else {
-            this.requiredForm = false
+            // this.requiredForm = false
             this.spinner.hide();
             console.log(erro);
+            alert("Não foi possivelcompletar a operção!")
           }
         }
       );
