@@ -16,9 +16,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class TelaCadastroComponent implements OnInit {
 
-  public title = 'CredLendFront';
-  public formCadastro!: FormGroup;
-  public formRole!: FormGroup;
+  title = 'CredLendFront';
+  formCadastro!: FormGroup;
+  formRole!: FormGroup;
   token!: string;
   todayDate: Date = new Date();
   requiredForm: boolean = true;

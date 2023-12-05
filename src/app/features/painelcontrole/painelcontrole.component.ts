@@ -15,9 +15,9 @@ import { PlanService } from 'src/app/services/plan.service';
 })
 export class PainelcontroleComponent implements OnInit {
 
-  public nome = "";
-  public saldo = 0;
-  public mostrarSaldo = false;
+  nome = "";
+  saldo = 0;
+  mostrarSaldo = false;
   formLoan!: FormGroup;
   formInvestment!: FormGroup;
   LoanId: any[] = ['41527045-fead-4505-880c-1ba8197329a0', '159598df-bd76-4da0-b204-9fc3795d34fc'];

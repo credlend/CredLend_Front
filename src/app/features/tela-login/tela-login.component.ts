@@ -17,6 +17,7 @@ export class TelaLoginComponent implements OnInit {
   formLogin!: FormGroup;
   requiredForm: boolean = true;
   erros: number = 0;
+  sucesso!: boolean;
 
   constructor(private fb: FormBuilder, private userService: UserService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormLogin();
@@ -40,17 +41,19 @@ export class TelaLoginComponent implements OnInit {
           this.spinner.hide();
           this.requiredForm = true
           setTimeout(() => {
-            alert("Usuário logado com sucesso !");
+            this.toastNotification(true);
             console.log(token);
             localStorage.setItem('authToken', token);
-            this.router.navigate(["/painelcontrole"])
+            setTimeout(() => {
+              this.router.navigate(["/painelcontrole"]);
+            }, 4000);
           }, 100);
         },
         (erro: any) => {
           this.spinner.hide();
           this.requiredForm = false
           setTimeout(() => {
-            alert("O usuário não existe!");
+            this.toastNotification(false);
             console.log(erro);
           }, 100);
         }
@@ -65,16 +68,39 @@ export class TelaLoginComponent implements OnInit {
   }
 
   showErros() {
-    if(this.formLogin.get('email')?.invalid){
+    if (this.formLogin.get('email')?.invalid) {
       this.erros = 1;
     }
-    else if(this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid){
+    else if (this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid) {
       this.erros = 2;
     }
-    else if(this.formLogin.get('password')?.valid && this.formLogin.invalid){
+    else if (this.formLogin.get('password')?.valid && this.formLogin.invalid) {
       this.erros = 3;
     }
-    else if(this.formLogin.valid)
-    this.erros = 0;
+    else if (this.formLogin.valid)
+      this.erros = 0;
+  }
+
+  toastNotification(success: boolean) {
+    const toast = document.querySelector(".noti");
+    const progressBar = document.querySelector(".progress");
+    
+    if(success){
+      this.sucesso = true;  
+    }
+    else if(!success){
+      success = false;
+    }
+
+    toast!.classList.add("active");
+    progressBar!.classList.add("active");
+
+    setTimeout(() => {
+      toast!.classList.remove("active");
+    }, 3600);
+
+    setTimeout(() => {
+      progressBar!.classList.remove("active");
+    }, 3900);
   }
 }
