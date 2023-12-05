@@ -16,6 +16,7 @@ export class TelaLoginComponent implements OnInit {
   title = 'CredLendLogin';
   formLogin!: FormGroup;
   requiredForm: boolean = true;
+  erros: number = 0;
 
   constructor(private fb: FormBuilder, private userService: UserService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormLogin();
@@ -63,4 +64,17 @@ export class TelaLoginComponent implements OnInit {
     this.spinner.show();
   }
 
+  showErros() {
+    if(this.formLogin.get('email')?.invalid){
+      this.erros = 1;
+    }
+    else if(this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid){
+      this.erros = 2;
+    }
+    else if(this.formLogin.get('password')?.valid && this.formLogin.invalid){
+      this.erros = 3;
+    }
+    else if(this.formLogin.valid)
+    this.erros = 0;
+  }
 }

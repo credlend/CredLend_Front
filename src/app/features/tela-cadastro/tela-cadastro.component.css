@@ -11,8 +11,9 @@ body {
   padding: 0;
   background-color: #01072a;
   min-width: 520px;
-  min-height: 710px !important;
+  min-height: 610px !important;
   z-index: 0;
+  
 }
 
 .alert_text{
@@ -169,10 +170,6 @@ body {
 
 .ou > p {
   margin: 2%;
-}
-
-body {
-  font-family: Arial, sans-serif;
 }
 
 .form-container {

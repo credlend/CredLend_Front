@@ -121,7 +121,7 @@
                                     <label>Quanto você deseja?</label>
                                     <div class="input-group">
                                         <span class="input-group-text">R$</span>
-                                        <input type="number" min="0" formControlName="valuePlan" name="valor"
+                                        <input (change)="updateFormLoan()" type="number" min="0" formControlName="valuePlan" name="valor"
                                             class="form-control" style="text-align: end;" placeholder="1000">
                                     </div>
                                 </div>
@@ -144,11 +144,11 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-sm-2 w-auto px-1" style="margin-top: 2em;">
+                                <!-- <div class="col-12 col-sm-2 w-auto px-1" style="margin-top: 2em;">
                                     <div class="total">
                                         <button (click)="updateFormLoan()">Calcular</button>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="d-flex justify-content-end">

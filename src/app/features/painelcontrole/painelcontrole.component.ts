@@ -99,7 +99,7 @@ export class PainelcontroleComponent implements OnInit {
         },
         (erro: any) => {
           console.log(erro);
-          alert("O plano não existe!");
+          // alert("O plano não existe!");
         }
       );
     }
@@ -112,7 +112,7 @@ export class PainelcontroleComponent implements OnInit {
         },
         (erro: any) => {
           console.log(erro);
-          alert("O plano não existe!");
+          // alert("O plano não existe!");
         }
       );
     }
@@ -142,7 +142,7 @@ export class PainelcontroleComponent implements OnInit {
         },
         (erro: any) => {
           console.log(erro);
-          alert("O plano não existe!");
+          // alert("O plano não existe!");
         }
       );
     }
@@ -155,7 +155,7 @@ export class PainelcontroleComponent implements OnInit {
         },
         (erro: any) => {
           console.log(erro);
-          alert("O plano não existe!");
+          // alert("O plano não existe!");
         }
       );
     }
@@ -207,7 +207,5 @@ export class PainelcontroleComponent implements OnInit {
     localStorage.removeItem("authToken");
     this.router.navigate(['/login']);
   }
-
-
 
 }

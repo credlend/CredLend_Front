@@ -71,10 +71,23 @@
                 <div style="width: 100%; height: 100%; border: 3px white solid"></div>
               </div>
             </div>
-            <div class="alert_text3 d-flex" *ngIf="requiredForm == false">
+            <div class="alert_text2" *ngIf="formCadastro.get('cpf')?.getError('cpfNotValid') && erros == 1">
+              *O cpf não é válido.
+            </div>
+            <div class="alert_text2" *ngIf="formCadastro.get('email')?.getError('email') && (formCadastro.get('email')?.touched && formCadastro.get('email')?.dirty) && erros == 2">
+              *O Email informado não é valido.
+            </div>
+            <div class="alert_text" *ngIf="formCadastro.get('password')?.getError('senhaInvalida') && (formCadastro.get('password')?.touched && formCadastro.get('password')?.dirty) && erros == 3">
+              A senha deve ter pelo menos 4 caracteres, 1 número, 1 letra maiúscula, 1 letra minúscula e 1 caractere especial
+            </div>
+            <div class="alert_text" *ngIf="formCadastro?.getError('notSame') && (formCadastro.get('confirmPassword')?.touched && formCadastro.get('confirmPassword')?.dirty) && erros == 4">
+              As senhas devem ser iguais
+            </div>
+            <div class="alert_text3 d-flex" *ngIf="requiredForm == false && erros == 5">
               *Você deve preencher todos os campos para efetuar o cadastro
             </div>
-            <form [formGroup]="formCadastro" (submit)="userSubmit()" style="z-index: 1">
+
+            <form [formGroup]="formCadastro" (submit)="userSubmit()" (change)="showErros()" style="z-index: 1">
               <div class="form-container">
                 <div class="form-group-name">
                   <div class="nome">
@@ -95,19 +108,12 @@
                     <input type="date" formControlName="birthDate" id="data-nascimento" name="data-nascimento" min="1923-01-01" max="{{todayDate | date:'yyyy-MM-dd'}}" />
                   </div>
                 </div>
-                <div class="alert_text2" *ngIf="formCadastro.get('cpf')?.getError('cpfNotValid')">
-                  *O cpf não é válido.
-                </div>
-
                 <div class="form-group">
                   <div class="email">
                     <label for="email"></label>
                     <input [ngClass]="{'alert_text': formCadastro.get('email')?.getError('email') && (formCadastro.get('email')?.touched && formCadastro.get('email')?.dirty)}" type="email"
                       formControlName="email" id="email" name="email" placeholder="Email" maxlength="50" />
                   </div>
-                </div>
-                <div class="alert_text2" *ngIf="formCadastro.get('email')?.getError('email') && (formCadastro.get('email')?.touched && formCadastro.get('email')?.dirty)">
-                  *O Email informado não é valido.
                 </div>
 
                 <div class="form-group-senha">
@@ -117,9 +123,7 @@
                       <input type="password" formControlName="password" id="senha" name="senha" placeholder="Senha" maxlength="20"/>
                     </div>
                   </div>
-                  <div class="alert_text" *ngIf="formCadastro.get('password')?.getError('senhaInvalida') && (formCadastro.get('password')?.touched && formCadastro.get('password')?.dirty)">
-                    A senha deve ter pelo menos 4 caracteres, 1 número, 1 letra maiúscula, 1 letra minúscula e 1 caractere especial
-                  </div>
+
                   <div class="confirmarsenha">
                     <label for="confirmsenha"></label>
                     <div class="password-input">
@@ -127,9 +131,6 @@
                         placeholder="Confimar senha" maxlength="20" />
                     </div>
                   </div>
-                </div>
-                <div class="alert_text" *ngIf="formCadastro?.getError('notSame') && (formCadastro.get('confirmPassword')?.touched && formCadastro.get('confirmPassword')?.dirty)">
-                  As senhas devem ser iguais
                 </div>
                 <div class="Entrar">
                   <button (click)="Submit()">ENTRAR</button>
