@@ -20,6 +20,24 @@ export class HomeComponent implements OnInit {
 
   movetoInfo(){
     document.querySelector('#info')!.scrollIntoView({behavior: 'smooth'});
+    this.ImgAnimation();
+  }
+
+  ImgAnimation(){
+    const imgs = document.querySelectorAll(".img1");
+    imgs.forEach((imagem) =>{
+      imagem?.classList.add("img-animation");
+      setTimeout(() => {
+        this.removeImgAnimation();
+      }, 1000);
+    });
+  }
+
+  removeImgAnimation(){
+    let imgs = document.querySelectorAll(".img1");
+    imgs.forEach((imagem) =>{
+      imagem?.classList.remove("img-animation");
+    });
   }
 
   cardBtnSelect(color: string){
