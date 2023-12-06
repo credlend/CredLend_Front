@@ -18,6 +18,7 @@ export class TelaLoginComponent implements OnInit {
   requiredForm: boolean = true;
   erros: number = 0;
   sucesso!: boolean;
+  notificationOpened!: boolean;
 
   constructor(private fb: FormBuilder, private userService: UserService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormLogin();
@@ -35,6 +36,7 @@ export class TelaLoginComponent implements OnInit {
   }
 
   loginUser(user: User) {
+    this.notificationOpened = true;
     setTimeout(() => {
       this.userService.postLogin(user).subscribe(
         (token: string | any) => {
@@ -46,7 +48,8 @@ export class TelaLoginComponent implements OnInit {
             localStorage.setItem('authToken', token);
             setTimeout(() => {
               this.router.navigate(["/painelcontrole"]);
-            }, 4000);
+              this.notificationOpened = false;
+            }, 4100);
           }, 100);
         },
         (erro: any) => {
@@ -55,6 +58,9 @@ export class TelaLoginComponent implements OnInit {
           setTimeout(() => {
             this.toastNotification(false);
             console.log(erro);
+            setTimeout(() => {
+              this.notificationOpened = false;
+            }, 3500);
           }, 100);
         }
       );
@@ -89,7 +95,7 @@ export class TelaLoginComponent implements OnInit {
       this.sucesso = true;  
     }
     else if(!success){
-      success = false;
+      this.sucesso = false;
     }
 
     toast!.classList.add("active");
@@ -97,10 +103,10 @@ export class TelaLoginComponent implements OnInit {
 
     setTimeout(() => {
       toast!.classList.remove("active");
-    }, 3600);
-
+    }, 3400);
+    
     setTimeout(() => {
       progressBar!.classList.remove("active");
-    }, 3900);
+    }, 4000);
   }
 }

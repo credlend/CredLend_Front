@@ -404,6 +404,12 @@ button:not([disabled]):hover{
   }
 }
 
+.unselectable{
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
 
 /* Toast */
 .noti{
@@ -474,10 +480,6 @@ button:not([disabled]):hover{
   height: 3px;
   width: 100%;
   background: #ddd;
-}
-
-.progress-error.active:before{
-  animation: progress 3.5s linear forwards;
 }
 
 .progress.active:before{

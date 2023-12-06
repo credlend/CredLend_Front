@@ -219,3 +219,17 @@
 >
   <p style="font-size: 20px; color: white">Carregando...</p>
 </ngx-spinner>
+
+<!-- Toast Notification -->
+<div [style]="sucesso ? 'border-left: 6px solid green;' : 'border-left: 6px solid red;' " class="noti">
+  <div class="noti-content">
+    <i [style]="sucesso ? 'background-color: green;' : 'background-color: red;'" [ngClass]="sucesso ? 'bi bi-check2 check' : 'bi bi-x check'"></i>
+
+      <div class="message">
+          <span class="text text-1">{{ sucesso ? "Sucesso" : "Erro"}}</span>
+          <span class="text text-2">{{ sucesso ? "O usuário foi cadastrado com sucesso!" : "Um erro ocorreu!"}}</span>
+      </div>
+  </div>
+
+  <div [ngClass]="sucesso ? 'progress' : 'progress-error'" class="progress"></div>
+</div>

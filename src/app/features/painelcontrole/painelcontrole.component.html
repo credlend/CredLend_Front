@@ -154,7 +154,7 @@
                             <div class="d-flex justify-content-end">
                                 <div class="total">
                                     <p>Valor Total: 0</p>
-                                    <button (click)="SubmitLoan()">Finalizar</button>
+                                    <button (click)="SubmitLoan()" [class.unselectable]="notificationLoanOpened">Finalizar</button>
                                 </div>
                             </div>
                         </form>
@@ -195,7 +195,7 @@
 
                                         <div class="col-12 col-sm-2 w-auto px-1 m-0">
 
-                                            <button (click)="SubmitInvestment()">Finalizar</button>
+                                            <button (click)="SubmitInvestment()" [class.unselectable]="notificationInvestmentOpened">Finalizar</button>
 
                                         </div>
                                     </div>
@@ -219,3 +219,31 @@
         </div>
     </div>
 </div>
+
+<!-- Toast Notification Loan -->
+<div [style]="sucessoLoan ? 'border-left: 6px solid green;' : 'border-left: 6px solid red;' " class="noti">
+    <div class="noti-content">
+      <i [style]="sucessoLoan ? 'background-color: green;' : 'background-color: red;'" [ngClass]="sucessoLoan ? 'bi bi-check2 check' : 'bi bi-x check'"></i>
+  
+        <div class="message">
+            <span class="text text-1">{{ sucessoLoan ? "Sucesso" : "Erro"}} - Empréstimo</span>
+            <span class="text text-2">{{ sucessoLoan ? "A Operação foi completada com sucesso!" : "Não foi possível completar a operação!"}}</span>
+        </div>
+    </div>
+  
+    <div [ngClass]="sucessoLoan ? 'progress' : 'progress-error'" class="progress"></div>
+  </div>
+
+  <!-- Toast Notification Investment -->
+<div [style]="sucessoInvestment ? 'border-left: 6px solid green;' : 'border-left: 6px solid red;' " class="noti noti-investment">
+    <div class="noti-content">
+      <i [style]="sucessoInvestment ? 'background-color: green;' : 'background-color: red;'" [ngClass]="sucessoInvestment ? 'bi bi-check2 check' : 'bi bi-x check'"></i>
+  
+        <div class="message">
+            <span class="text text-1">{{ sucessoInvestment ? "Sucesso" : "Erro"}} - Investimento</span>
+            <span class="text text-2">{{ sucessoInvestment ? "A Operação foi completada com sucesso!" : "Não foi possível completar a operação!"}}</span>
+        </div>
+    </div>
+  
+    <div [ngClass]="sucessoInvestment ? 'progress' : 'progress-error'" class="progress progress-investment"></div>
+  </div>
