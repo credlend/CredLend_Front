@@ -15,9 +15,9 @@ import { PlanService } from 'src/app/services/plan.service';
 })
 export class PainelcontroleComponent implements OnInit {
 
-  public nome = "";
-  public saldo = 0;
-  public mostrarSaldo = false;
+  nome = "";
+  saldo = 0;
+  mostrarSaldo = false;
   formLoan!: FormGroup;
   formInvestment!: FormGroup;
   LoanId: any[] = ['41527045-fead-4505-880c-1ba8197329a0', '159598df-bd76-4da0-b204-9fc3795d34fc'];
@@ -26,6 +26,10 @@ export class PainelcontroleComponent implements OnInit {
   investmentResult!: any;
   authToken = localStorage.getItem('authToken');
   authObject = JSON.parse(this.authToken!);
+  sucessoLoan!: boolean;
+  sucessoInvestment!: boolean;
+  notificationLoanOpened!: boolean;
+  notificationInvestmentOpened!: boolean;
 
   constructor(private fb: FormBuilder, private planService: PlanService, private operationService: OperationService, private router: Router) 
   {
@@ -66,12 +70,12 @@ export class PainelcontroleComponent implements OnInit {
   newLoan(loan: LoanOperation){
     this.operationService.postLoanPlan(loan).subscribe(
       (retorno: string | any) => {
+        this.toastNotificationLoan(true);
         console.log(retorno);
-        alert("A Operação foi completada com sucesso!")
       },
       (erro: any) => {
+        this.toastNotificationLoan(false);
         console.log(erro);
-        alert("Não foi possível completar a operação!");
       }
     );
   }
@@ -180,12 +184,12 @@ export class PainelcontroleComponent implements OnInit {
   newInvestment(inv: InvestmentOperation){
     this.operationService.postInvestmentPlan(inv).subscribe(
       (retorno: string | any) => {
+        this.toastNotificationInvenstment(true);
         console.log(retorno);
-        alert("A Operação foi completada com sucesso!")
       },
       (erro: any) => {
+        this.toastNotificationInvenstment(false);
         console.log(erro);
-        alert("Não foi possível completar a operação!");
       }
     );
   }
@@ -206,6 +210,56 @@ export class PainelcontroleComponent implements OnInit {
   logOut(){
     localStorage.removeItem("authToken");
     this.router.navigate(['/login']);
+  }
+
+  toastNotificationLoan(success: boolean) {
+    const toast = document.querySelector(".noti");
+    const progressBar = document.querySelector(".progress");
+
+    if (success) {
+      this.sucessoLoan = true;
+    }
+    else if (!success) {
+      this.sucessoLoan  = false;
+    }
+
+    this.notificationLoanOpened = true;
+    toast!.classList.add("active");
+    progressBar!.classList.add("active");
+
+    setTimeout(() => {
+      toast!.classList.remove("active");
+    }, 2900);
+
+    setTimeout(() => {
+      progressBar!.classList.remove("active");
+      this.notificationLoanOpened = false;
+    }, 3300);
+  }
+
+  toastNotificationInvenstment(success: boolean) {
+    const toast = document.querySelector(".noti-investment");
+    const progressBar = document.querySelector(".progress-investment");
+
+    if (success) {
+      this.sucessoInvestment = true;
+    }
+    else if (!success) {
+      this.sucessoInvestment = false;
+    }
+
+    this.notificationInvestmentOpened = true;
+    toast!.classList.add("active");
+    progressBar!.classList.add("active");
+
+    setTimeout(() => {
+      toast!.classList.remove("active");
+    }, 2900);
+
+    setTimeout(() => {
+      progressBar!.classList.remove("active");
+      this.notificationInvestmentOpened = false;
+    }, 3300);
   }
 
 }

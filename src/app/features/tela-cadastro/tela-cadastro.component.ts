@@ -16,13 +16,14 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class TelaCadastroComponent implements OnInit {
 
-  public title = 'CredLendFront';
-  public formCadastro!: FormGroup;
-  public formRole!: FormGroup;
+  title = 'CredLendFront';
+  formCadastro!: FormGroup;
+  formRole!: FormGroup;
   token!: string;
   todayDate: Date = new Date();
   requiredForm: boolean = true;
   erros: number = 0;
+  sucesso!: boolean;
 
   constructor(private fb: FormBuilder, private userService: UserService, private roleService: RoleService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormUser();
@@ -30,6 +31,7 @@ export class TelaCadastroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
   createFormUser() {
@@ -74,22 +76,28 @@ export class TelaCadastroComponent implements OnInit {
       this.userService.postRegister(user).subscribe(
         (retorno: User | any) => {
           console.log(retorno);
-          this.requiredForm = true    
+          this.requiredForm = true
         },
         (erro: HttpErrorResponse) => {
           if (erro.status === 200) {
             console.log(erro);
             setTimeout(() => {
-              alert("Usuário cadastrado com sucesso!");
               this.spinner.hide();
-              this.router.navigate(['/login']);
+              setTimeout(() => {
+                this.toastNotification(true);
+              }, 500);
+              setTimeout(() => {
+                this.router.navigate(["/login"]);
+              }, 5000);
             }, 1000);
           }
           else {
-            // this.requiredForm = false
             this.spinner.hide();
-            console.log(erro);
-            alert("Não foi possivelcompletar a operção!")
+            this.requiredForm = false;
+            setTimeout(() => {
+              this.toastNotification(false);
+              console.log(erro);
+            }, 100);        
           }
         }
       );
@@ -126,7 +134,7 @@ export class TelaCadastroComponent implements OnInit {
     );
   }
 
-  checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => { 
+  checkPasswords: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
     let pass = group.get('password')?.value;
     let confirmPass = group.get('confirmPassword')?.value
     return pass === confirmPass ? null : { notSame: true }
@@ -168,4 +176,27 @@ export class TelaCadastroComponent implements OnInit {
   //   else if(this.formCadastro.valid)
   //   this.erros = 0;
   // }
+  toastNotification(success: boolean) {
+    const toast = document.querySelector(".noti");
+    const progressBar = document.querySelector(".progress");
+
+    if (success) {
+      this.sucesso = true;
+    }
+    else if (!success) {
+      this.sucesso = false;
+    }
+
+    toast!.classList.add("active");
+    progressBar!.classList.add("active");
+
+    setTimeout(() => {
+      toast!.classList.remove("active");
+    }, 3400);
+
+    setTimeout(() => {
+      progressBar!.classList.remove("active");
+    }, 4000);
+  }
+
 }

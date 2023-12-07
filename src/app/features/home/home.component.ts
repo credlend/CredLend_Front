@@ -19,7 +19,12 @@ export class HomeComponent implements OnInit {
 
 
   movetoInfo(){
-    document.querySelector('#info')!.scrollIntoView({behavior: 'smooth'});
+    // document.querySelector('#info')!.scrollIntoView({behavior: 'smooth'});
+    scrollTo({
+      top: 750,
+      left: 0,
+      behavior: "smooth",
+    });
     this.ImgAnimation();
   }
 
