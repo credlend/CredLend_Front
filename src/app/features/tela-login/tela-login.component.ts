@@ -72,7 +72,6 @@ export class TelaLoginComponent implements OnInit {
     this.loginUser(this.formLogin.value);
     this.spinner.show();
   }
-
   toastNotification(success: boolean) {
     const toast = document.querySelector(".noti");
     const progressBar = document.querySelector(".progress");
