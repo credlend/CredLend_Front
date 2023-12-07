@@ -54,7 +54,7 @@ export class TelaLoginComponent implements OnInit {
         },
         (erro: any) => {
           this.spinner.hide();
-          this.requiredForm = false
+          // this.requiredForm = false
           setTimeout(() => {
             this.toastNotification(false);
             console.log(erro);
@@ -71,20 +71,6 @@ export class TelaLoginComponent implements OnInit {
     console.log(this.formLogin.value);
     this.loginUser(this.formLogin.value);
     this.spinner.show();
-  }
-
-  showErros() {
-    if (this.formLogin.get('email')?.invalid) {
-      this.erros = 1;
-    }
-    else if (this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid) {
-      this.erros = 2;
-    }
-    else if (this.formLogin.get('password')?.valid && this.formLogin.invalid) {
-      this.erros = 3;
-    }
-    else if (this.formLogin.valid)
-      this.erros = 0;
   }
 
   toastNotification(success: boolean) {
@@ -109,4 +95,17 @@ export class TelaLoginComponent implements OnInit {
       progressBar!.classList.remove("active");
     }, 4000);
   }
+  // showErros() {
+  //   if(this.formLogin.get('email')?.invalid){
+  //     this.erros = 1;
+  //   }
+  //   else if(this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid){
+  //     this.erros = 2;
+  //   }
+  //   else if(this.formLogin.get('password')?.valid && this.formLogin.invalid){
+  //     this.erros = 3;
+  //   }
+  //   else if(this.formLogin.valid)
+  //   this.erros = 0;
+  // }
 }

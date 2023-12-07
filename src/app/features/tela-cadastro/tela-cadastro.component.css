@@ -14,6 +14,7 @@ body {
   min-width: 520px;
   min-height: 610px !important;
   z-index: 0;
+  overflow-x: hidden;
   
 }
 
@@ -451,12 +452,16 @@ button:not([disabled]):hover{
     align-items: center;
   }
 
+  .half2 {
+    margin-top: 5%;
+  }
+
   .conta {
     margin-top: 5%;
   }
 
   body {
-    min-height: 1250px !important;
+    min-height: 1150px !important;
   }
 
   .criar-conta button{

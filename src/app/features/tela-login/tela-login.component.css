@@ -64,6 +64,7 @@ body {
   background-color: #080f38;
   border-radius: 10px;
   padding: 30px;
+  width: 500px;
 }
 
 .entrar {
@@ -387,6 +388,7 @@ button:not([disabled]):hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 8%;
   }
 
   .conta {
@@ -396,7 +398,7 @@ button:not([disabled]):hover{
 
 @media (max-width: 575px) {
   .half2 {
-    margin-top: 15%;
+    margin-top: 40%;
   }
 
   .icone {

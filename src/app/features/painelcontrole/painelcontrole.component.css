@@ -8,6 +8,14 @@ button{
     font-weight: 600;
 }
 
+.buttons ul p{
+    font-weight: 900;
+}
+
+.dropdown-item{
+    cursor: pointer;
+}
+
 .master-container {
     overflow-x: hidden;
 }
