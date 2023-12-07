@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TelaCadastroComponent } from './tela-cadastro.component';
+
+// import { TelaCadastroComponent } from './tela-cadastro.component';
 
 describe('TelaCadastroComponent', () => {
   let component: TelaCadastroComponent;

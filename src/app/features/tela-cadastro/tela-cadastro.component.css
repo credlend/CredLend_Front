@@ -1,26 +1,34 @@
-@font-face {
+/* @font-face {
   font-family: "Krona One";
   src: url("/assets/KronaOne.woff2") format("woff2"),
     url("/assets/KronaOne.woff") format("woff");
-}
+} */
 
 body {
-  font-family: "Krona One", sans-serif;
+  font-family: "Montserrat";
   margin: 0;
   text-align: center !important;
   padding: 0;
   background-color: #01072a;
   min-width: 520px;
-  min-height: 600px;
+  min-height: 710px !important;
   z-index: 0;
 }
 
-h1,
-h2,
-h3 {
-  font-family: "Krona One", sans-serif;
+.alert_text{
+  color: red;
 }
-
+.alert_text2{
+  color: red;
+  text-align: start;
+}
+.alert_text3{
+  /* max-width: 80%; */
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
 .half1 {
   background-color: #01072a;
   width: 45vw;
@@ -96,6 +104,15 @@ h3 {
 
 }
 
+
+
+.Apple > p {
+  margin-left: 2%;
+  margin-top: 4%;
+  align-items: center;
+}
+
+
 .Google {
   flex-direction: row;
   display: flex;
@@ -104,18 +121,16 @@ h3 {
   z-index: 0;
 }
 
-.Apple > p {
-  margin-left: 2%;
-  margin-top: 4%;
-  align-items: center;
+.Google svg{
+  margin-bottom: 1%;
 }
 
+
 .GoogleAut {
-  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  color: black;
+  background-color: #FFF;
+  color: #000;
   width: 69%;
   height: 50px;
   border-radius: 10px;
@@ -124,10 +139,11 @@ h3 {
   cursor: pointer;
 }
 
-.Google > p {
+.Google p {
+  font-weight: 700;
   text-align: center;
   margin-left: 5px;
-  margin-top: 5%;
+  margin-top: 4%;
   display: flex;
   align-items: center;
 }
@@ -361,7 +377,7 @@ input {
 .elipse3 {
   position: relative;
   width: 400px;
-  height: 1000px;
+  height: 100px;
   background-color: #1e61ae;
   filter: blur(270px);
   border-radius: 80%;
@@ -398,7 +414,7 @@ input {
   }
 
   body {
-    min-height: 1150px;
+    min-height: 1250px !important;
   }
 }
 
@@ -407,3 +423,4 @@ input {
     margin-top: 5%;
   }
 }
+

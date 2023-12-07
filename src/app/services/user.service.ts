@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject  } from 'rxjs';
 import { User } from '../models/User';
 import { environment } from 'src/enviroments/enviroment';
 
@@ -10,6 +10,7 @@ import { environment } from 'src/enviroments/enviroment';
 export class UserService {
 
   baseUrl = `${environment.UrlPrincipal}/api/User`;
+  // userId$ = new BehaviorSubject<any>('');
 
   constructor(private http: HttpClient) { }
 
@@ -21,8 +22,12 @@ export class UserService {
     return this.http.get<User[]>(`${this.baseUrl}/ActiveUsers`);
   }
 
-  // getById(id: number): Observable<User>{
+  // getById(id: string): Observable<User>{
   //   return this.http.get<User>(`${this.baseUrl}/${id}`);
+  // }
+
+  // updateUserId(value: any) {
+  //   this.userId$.next(value);
   // }
 
   postRegister(user: User){
@@ -39,7 +44,7 @@ export class UserService {
   //   return this.http.put(`${this.baseUrl}/${user.id}`, user);
   // }
 
-  delete(id: number){
+  delete(id: string){
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }

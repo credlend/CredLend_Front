@@ -76,6 +76,9 @@
                   ></div>
                 </div>
               </div>
+              <div class="alert_text3 d-flex" *ngIf="requiredForm == false">
+                *Você deve preencher todos os campos para efetuar o login
+              </div>
               <form
                 [formGroup]="formLogin"
                 (submit)="Submit()"
@@ -92,9 +95,13 @@
                           id="email"
                           name="email"
                           placeholder="Email"
+                          maxlength="50"
                         />
                       </div>
                     </div>
+                  </div>
+                  <div class="alert_text2" *ngIf="formLogin.get('email')?.getError('email') && (formLogin.get('email')?.touched && formLogin.get('email')?.dirty)">
+                    *O Email informado não é valido.
                   </div>
 
                   <div class="form-group-senha">
@@ -107,9 +114,13 @@
                           id="senha"
                           name="senha"
                           placeholder="Senha"
+                          maxlength="20"
                         />
                       </div>
                     </div>
+                  </div>
+                  <div class="alert_text" *ngIf="formLogin.get('password')?.getError('senhaInvalida') && (formLogin.get('password')?.touched && formLogin.get('password')?.dirty)">
+                    A senha deve ter pelo menos 4 caracteres, 1 número, 1 letra maiúscula, 1 letra minúscula e 1 caractere especial
                   </div>
 
                   <div class="Entrar">
@@ -132,7 +143,7 @@
             <div class="conta">
               <h2>Ainda não possui uma conta?</h2>
               <div class="criar-conta">
-                <button>Crie sua conta agora</button>
+                <button routerLink="/cadastro">Crie sua conta agora</button>
               </div>
             </div>
           </div>
@@ -141,3 +152,13 @@
     </div>
   </div>
 </body>
+
+<!-- Loader Animation -->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-clip-rotate"
+>
+  <p style="font-size: 20px; color: white">Carregando...</p>
+</ngx-spinner>
