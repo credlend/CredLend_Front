@@ -16,6 +16,9 @@ export class TelaLoginComponent implements OnInit {
   title = 'CredLendLogin';
   formLogin!: FormGroup;
   requiredForm: boolean = true;
+  erros: number = 0;
+  sucesso!: boolean;
+  notificationOpened!: boolean;
 
   constructor(private fb: FormBuilder, private userService: UserService, private spinner: NgxSpinnerService, private router: Router) {
     this.createFormLogin();
@@ -33,24 +36,31 @@ export class TelaLoginComponent implements OnInit {
   }
 
   loginUser(user: User) {
+    this.notificationOpened = true;
     setTimeout(() => {
       this.userService.postLogin(user).subscribe(
         (token: string | any) => {
           this.spinner.hide();
           this.requiredForm = true
           setTimeout(() => {
-            alert("Usuário logado com sucesso !");
+            this.toastNotification(true);
             console.log(token);
             localStorage.setItem('authToken', token);
-            this.router.navigate(["/painelcontrole"])
+            setTimeout(() => {
+              this.router.navigate(["/painelcontrole"]);
+              this.notificationOpened = false;
+            }, 4100);
           }, 100);
         },
         (erro: any) => {
           this.spinner.hide();
-          this.requiredForm = false
+          // this.requiredForm = false
           setTimeout(() => {
-            alert("O usuário não existe!");
+            this.toastNotification(false);
             console.log(erro);
+            setTimeout(() => {
+              this.notificationOpened = false;
+            }, 3500);
           }, 100);
         }
       );
@@ -63,4 +73,39 @@ export class TelaLoginComponent implements OnInit {
     this.spinner.show();
   }
 
+  toastNotification(success: boolean) {
+    const toast = document.querySelector(".noti");
+    const progressBar = document.querySelector(".progress");
+    
+    if(success){
+      this.sucesso = true;  
+    }
+    else if(!success){
+      this.sucesso = false;
+    }
+
+    toast!.classList.add("active");
+    progressBar!.classList.add("active");
+
+    setTimeout(() => {
+      toast!.classList.remove("active");
+    }, 3400);
+    
+    setTimeout(() => {
+      progressBar!.classList.remove("active");
+    }, 4000);
+  }
+  // showErros() {
+  //   if(this.formLogin.get('email')?.invalid){
+  //     this.erros = 1;
+  //   }
+  //   else if(this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid){
+  //     this.erros = 2;
+  //   }
+  //   else if(this.formLogin.get('password')?.valid && this.formLogin.invalid){
+  //     this.erros = 3;
+  //   }
+  //   else if(this.formLogin.valid)
+  //   this.erros = 0;
+  // }
 }

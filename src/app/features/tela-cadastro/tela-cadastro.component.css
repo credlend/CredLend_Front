@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 /* @font-face {
   font-family: "Krona One";
   src: url("/assets/KronaOne.woff2") format("woff2"),
@@ -11,8 +12,10 @@ body {
   padding: 0;
   background-color: #01072a;
   min-width: 520px;
-  min-height: 710px !important;
+  min-height: 610px !important;
   z-index: 0;
+  overflow-x: hidden;
+  
 }
 
 .alert_text{
@@ -21,10 +24,12 @@ body {
 .alert_text2{
   color: red;
   text-align: start;
+  font-size: 15px;
 }
 .alert_text3{
   /* max-width: 80%; */
   color: red;
+  font-size: 15px;
   text-align: center;
   font-weight: bold;
   font-size: 15px;
@@ -90,28 +95,34 @@ body {
   z-index: 0;
 }
 
+.Apple svg{
+  margin-bottom: 2%;
+}
+
 .AppleAut {
   justify-content: center;
   align-items: center;
   background-color: black;
   color: white;
-  width: 310px;
+  width: 69%;
   height: 50px;
   border-radius: 10px;
   margin: 1%;
-  z-index: 1;
+  z-index: 0;
   cursor: pointer;
-
 }
 
+.AppleAut:active {
+  transform: scale(0.98);
+  transition: all 0.1s;
+}
 
-
-.Apple > p {
+.Apple p {
+  font-weight: 500;
   margin-left: 2%;
   margin-top: 4%;
   align-items: center;
 }
-
 
 .Google {
   flex-direction: row;
@@ -139,6 +150,11 @@ body {
   cursor: pointer;
 }
 
+.GoogleAut:active {
+  transform: scale(0.98);
+  transition: all 0.1s;
+}
+
 .Google p {
   font-weight: 700;
   text-align: center;
@@ -160,10 +176,6 @@ body {
 
 .ou > p {
   margin: 2%;
-}
-
-body {
-  font-family: Arial, sans-serif;
 }
 
 .form-container {
@@ -240,11 +252,15 @@ body {
 }
 
 .form-group-senha {
-  display: flex;
+  /* display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  margin-bottom: 10px;
+  justify-content: center; */
+  margin-bottom: 10px;  
+}
+
+.form-group-senha input{
+  width: 119%;
 }
 
 label {
@@ -258,6 +274,7 @@ input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-weight: 600;
 }
 
 .password-input {
@@ -280,9 +297,29 @@ input {
   background-color: #fff500;
   color: black;
   font-size: 16px;
+  font-weight: 700;
   border-radius: 10px;
   cursor: pointer;
 }
+
+.Entrar button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button{
+  border: none;
+}
+
+button:not([disabled]):active {
+  transform: scale(0.98);
+}
+
+button:not([disabled]):hover{
+  filter: drop-shadow(3px 2px 2px #000);
+  transition: all 0.2s;
+}
+
 
 .criar-conta button {
   position: relative;
@@ -294,6 +331,7 @@ input {
   background-color: #fff500;
   color: black;
   font-size: 16px;
+  font-weight: 700;
   border-radius: 10px;
   cursor: pointer;
   z-index: 1;
@@ -314,7 +352,7 @@ input {
 }
 
 .texto h3 {
-  font-size: 16px;
+  font-size: 1.5em;
   margin: 1%;
 }
 
@@ -348,6 +386,11 @@ input {
 .conta {
   margin-top: 35%;
 }
+
+.conta h2{
+  font-size: 1.5em;
+}
+
 
 .elipse-container {
   position: absolute;
@@ -409,12 +452,20 @@ input {
     align-items: center;
   }
 
+  .half2 {
+    margin-top: 5%;
+  }
+
   .conta {
     margin-top: 5%;
   }
 
   body {
-    min-height: 1250px !important;
+    min-height: 1150px !important;
+  }
+
+  .criar-conta button{
+    margin-bottom: 30px;
   }
 }
 
@@ -422,5 +473,107 @@ input {
   .icone {
     margin-top: 5%;
   }
+}
+
+
+/* Toast */
+.noti{
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  border-left: 6px solid green;
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+
+.noti.active{
+  transform: translateX(0%);
+}
+
+.noti .noti-content{
+  display: flex;
+  align-items: center;
+}
+
+.noti-content .check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: green;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 50%;
+}
+
+.noti-content .message{
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.message .text{
+  font-size: 16px;
+  font-weight: 900;
+  color: #272727;
+}
+
+.message .text.text-1{
+  color: #000;
+}
+
+.noti .progress{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #ddd;
+}
+
+.noti .progress-error{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #ddd;
+}
+
+.progress.active:before{
+  animation: progress 3.5s linear forwards;
+}
+
+@keyframes progress{
+  100%{
+      right: 100%;
+  }
+}
+
+.noti .progress:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: green;
+}
+
+.noti .progress-error:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: red;
 }
 
