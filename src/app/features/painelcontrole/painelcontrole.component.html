@@ -16,7 +16,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="assets/perfil.jpg" alt="foto-perfil" class="logo-perfil">
                             </a>
-                            <ul class="dropdown-menu dropdown-pc" *dropdownMenu style="font-size: 12px;">
+                            <ul class="dropdown-menu dropdown-pc" *dropdownMenu style="font-size: 13px;">
                                 <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
                                 <li><a class="dropdown-item" (click)="logOut()">Sair</a></li>
                             </ul>
@@ -33,7 +33,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="assets/perfil.jpg" alt="foto-perfil" class="logo-perfil">
                             </a>
-                            <ul class="dropdown-menu dropdown-mobile" *dropdownMenu style="font-size: 12px;">
+                            <ul class="dropdown-menu dropdown-mobile" *dropdownMenu style="font-size: 13px;">
                                 <li><a class="dropdown-item" routerLink="configuracoes">Configurações</a></li>
                                 <li><a class="dropdown-item" (click)="logOut()">Sair</a></li>
                                 <hr>
@@ -121,7 +121,7 @@
                                     <label>Quanto você deseja?</label>
                                     <div class="input-group">
                                         <span class="input-group-text">R$</span>
-                                        <input type="number" min="0" formControlName="valuePlan" name="valor"
+                                        <input (change)="updateFormLoan()" type="number" min="0" formControlName="valuePlan" name="valor"
                                             class="form-control" style="text-align: end;" placeholder="1000">
                                     </div>
                                 </div>
@@ -144,17 +144,17 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-sm-2 w-auto px-1" style="margin-top: 2em;">
+                                <!-- <div class="col-12 col-sm-2 w-auto px-1" style="margin-top: 2em;">
                                     <div class="total">
                                         <button (click)="updateFormLoan()">Calcular</button>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="d-flex justify-content-end">
                                 <div class="total">
                                     <p>Valor Total: 0</p>
-                                    <button (click)="SubmitLoan()">Finalizar</button>
+                                    <button (click)="SubmitLoan()" [class.unselectable]="notificationLoanOpened">Finalizar</button>
                                 </div>
                             </div>
                         </form>
@@ -195,7 +195,7 @@
 
                                         <div class="col-12 col-sm-2 w-auto px-1 m-0">
 
-                                            <button (click)="SubmitInvestment()">Finalizar</button>
+                                            <button (click)="SubmitInvestment()" [class.unselectable]="notificationInvestmentOpened">Finalizar</button>
 
                                         </div>
                                     </div>
@@ -219,3 +219,31 @@
         </div>
     </div>
 </div>
+
+<!-- Toast Notification Loan -->
+<div [style]="sucessoLoan ? 'border-left: 6px solid green;' : 'border-left: 6px solid red;' " class="noti">
+    <div class="noti-content">
+      <i [style]="sucessoLoan ? 'background-color: green;' : 'background-color: red;'" [ngClass]="sucessoLoan ? 'bi bi-check2 check' : 'bi bi-x check'"></i>
+  
+        <div class="message">
+            <span class="text text-1">{{ sucessoLoan ? "Sucesso" : "Erro"}} - Empréstimo</span>
+            <span class="text text-2">{{ sucessoLoan ? "A Operação foi completada com sucesso!" : "Não foi possível completar a operação!"}}</span>
+        </div>
+    </div>
+  
+    <div [ngClass]="sucessoLoan ? 'progress' : 'progress-error'" class="progress"></div>
+  </div>
+
+  <!-- Toast Notification Investment -->
+<div [style]="sucessoInvestment ? 'border-left: 6px solid green;' : 'border-left: 6px solid red;' " class="noti noti-investment">
+    <div class="noti-content">
+      <i [style]="sucessoInvestment ? 'background-color: green;' : 'background-color: red;'" [ngClass]="sucessoInvestment ? 'bi bi-check2 check' : 'bi bi-x check'"></i>
+  
+        <div class="message">
+            <span class="text text-1">{{ sucessoInvestment ? "Sucesso" : "Erro"}} - Investimento</span>
+            <span class="text text-2">{{ sucessoInvestment ? "A Operação foi completada com sucesso!" : "Não foi possível completar a operação!"}}</span>
+        </div>
+    </div>
+  
+    <div [ngClass]="sucessoInvestment ? 'progress' : 'progress-error'" class="progress progress-investment"></div>
+  </div>

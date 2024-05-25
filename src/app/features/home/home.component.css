@@ -1,7 +1,17 @@
 .home_container{
     /* display: flex; */
     /* justify-content: space-between; */
-    min-width: 590px;
+}
+
+.main-container{
+    min-width: 1000px;
+    /* max-width: 1500vw; */
+    overflow-x: hidden !important; 
+    overflow-y: hidden !important; 
+
+    /* @media (max-width: 1000px){
+        max-width: 1500px;
+    } */
 }
 
 .header_rectangle {
@@ -13,7 +23,7 @@
 .body_rectangle {
     padding: 80px 40px;
 
-    @media (max-width: 575px) {
+    @media (max-width: 766px) {
         padding: 220px 40px;
     }
 }
@@ -24,7 +34,7 @@
 
 .image_body1 {
     padding: 0px 0px 0px 0px;
-
+    
     @media (max-width: 885px) {
         padding: 40px 0px;
     }
@@ -51,7 +61,7 @@
 
 .background_body {
     background: linear-gradient(270deg, #000729 11.18%, #0A1449 73.08%);
-    box-shadow: 0px -2px 13px 25px rgba(0, 0, 0, 0.36);
+    box-shadow: 0px -1px 13px 20px rgba(0, 0, 0, 0.36);
 
     padding-inline: 10%;
     padding-bottom: 0.5%;
@@ -67,10 +77,8 @@
 .start_button {
     margin-top: 32px;
     padding: 8px 16px;
-
     border-radius: 8px;
     background: #FFFAFA;
-    
 }
 
 .align_col_100 {
@@ -80,8 +88,8 @@
 .align_col_203 {
     height: 203px;
     
-    @media (max-width: 575px) {
-        height: 100px;
+    @media (max-width: 766px) {
+        height: 150px;
     }
 }
 
@@ -92,7 +100,7 @@
 .align_col_406 {
     height: 406px;
 
-    /* @media (max-width: 575px) {
+    /* @media (max-width: 766px) {
         height: 203px;
     } */
 }
@@ -117,22 +125,19 @@
     padding: 0px 40px;
 }
 
-.main-container{
+/* .main-container{
     overflow-x: hidden;
-}
+} */
 
 .slogan {
     color: #FFF;
     font-family: "Montserrat";
-    font-size: 48px;
+    font-size: 3em;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: normal;
     letter-spacing: 1.68px;
-
     padding: 60px 200px 0px 0px;
-
-
     @media (max-width: 885px) {
         padding: 30px 0px 0px 0px;
         font-size: 38px;
@@ -141,16 +146,13 @@
 }
 
 .slogan_subtitle {
-    color: rgba(255, 255, 255, 0.58);
+    color: rgba(255, 255, 255, 0.70);
     font-family: "Montserrat";
-    font-size: 12px;
+    font-size: 1.2em;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-
     padding: 0px 40px 5px 0px;
-
-
     @media (max-width: 885px) {
         padding: 0px;
     }
@@ -215,9 +217,9 @@
 }
 
 .sub_title2 {
-    color: #999;
+    color: #555;
     font-family: "Montserrat";
-    font-size: 18px;
+    font-size: 1.2em;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -244,21 +246,93 @@
 
 .button_planos_subtitle {
     color: #FFF;
-
     font-family: "Montserrat";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.56px;
-
     padding: 0px 0px 0px 15px;
+    cursor: pointer;
+    margin-left: 3%;
+    text-decoration: none;
+    background: linear-gradient(currentColor 0 0) 
+    bottom left/ 
+    var(--underline-width, 0%) 0.1em 
+    no-repeat;
+    display: inline-block;
+    padding: 0 .1em 0.2em;
+    transition: all 0.5s;
 }
+
+.button_planos_subtitle:hover{
+    --underline-width: 100%;
+} 
+
+.img-animation{
+    animation-name: slidein;
+    animation-duration: 1s;
+}
+
+@keyframes slidein{
+    0% {
+        margin-top: 100%;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0%;
+        opacity: 1;
+    }
+}
+.card-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-buttons div{
+    cursor: pointer;
+}
+
+.card-btn{
+    background: #000;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 2px solid #000;
+}
+
+.card-btn:nth-child(2){
+    background: #0031A5;
+}
+
+.card-btn:nth-child(3){
+    background: #FFF500;
+}
+
+.card-btn:nth-child(4){
+    background: #93D8FF;
+}
+
+.card-btn:nth-child(5){
+    background: #FFF;
+}
+
+.card-selecionado{
+    filter: drop-shadow(2px 1px 1px #000);
+}
+
+.card-btn:active {
+    transform: scale(0.98);
+  }
 
 .cartao {
     max-height: 703px;
 
-
+    /* @media (max-width: 766px){
+        
+    } */
 }
 
 .button_planos {
@@ -267,10 +341,22 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-
     border-radius: 12px;
     background: #FFF500;
-
 }
+
+button{
+    border: none;
+    font-weight: 600;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  button:hover{
+    filter: drop-shadow(3px 2px 2px #000);
+    transition: all 0.2s;
+  }
 
 

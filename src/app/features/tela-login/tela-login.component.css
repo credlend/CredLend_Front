@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap'); */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 *{
   font-family: "Montserrat"
@@ -14,11 +14,14 @@ body {
   z-index: 0;
 }
 .alert_text{
+  /* width: 100%; */
+  padding-inline: 15%;
+  text-align: center;
   color: red;
 }
 .alert_text2{
   color: red;
-  text-align: start;
+  text-align: center;
 }
 .alert_text3{
   /* max-width: 90%; */
@@ -61,6 +64,7 @@ body {
   background-color: #080f38;
   border-radius: 10px;
   padding: 30px;
+  width: 500px;
 }
 
 .entrar {
@@ -104,6 +108,11 @@ body {
   cursor: pointer;
 }
 
+.AppleAut:active {
+  transform: scale(0.98);
+  transition: all 0.1s;
+}
+
 .Apple p {
   font-weight: 500;
   margin-left: 2%;
@@ -137,6 +146,11 @@ body {
   cursor: pointer;
 }
 
+.GoogleAut:active {
+  transform: scale(0.98);
+  transition: all 0.1s;
+}
+
 .Google p {
   font-weight: 700;
   text-align: center;
@@ -162,10 +176,11 @@ body {
 
 
 .form-container {
-  width: 450px;
+  width: 100%;
   justify-content: center;
   align-items: center;
   z-index: 0;
+  text-align: center;
 }
 
 .form-group {
@@ -259,7 +274,7 @@ input {
 }
 
 .texto h3 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin: 1%;
 }
 
@@ -323,6 +338,24 @@ input {
   overflow: hidden;
 }
 
+button{
+  border: none;
+}
+
+.Entrar button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:not([disabled]):active {
+  transform: scale(0.98);
+}
+
+button:not([disabled]):hover{
+  filter: drop-shadow(3px 2px 2px #000);
+  transition: all 0.2s;
+}
+
 .elipse3 {
   position: relative;
   width: 400px;
@@ -355,6 +388,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 8%;
   }
 
   .conta {
@@ -364,10 +398,118 @@ input {
 
 @media (max-width: 575px) {
   .half2 {
-    margin-top: 15%;
+    margin-top: 40%;
   }
 
   .icone {
     margin-top: 5%;
   }
+}
+
+.unselectable{
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* Toast */
+.noti{
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  border-left: 6px solid green;
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+
+.noti.active{
+  transform: translateX(0%);
+}
+
+.noti .noti-content{
+  display: flex;
+  align-items: center;
+}
+
+.noti-content .check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: green;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 50%;
+}
+
+.noti-content .message{
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.message .text{
+  font-size: 16px;
+  font-weight: 900;
+  color: #272727;
+}
+
+.message .text.text-1{
+  color: #000;
+}
+
+.noti .progress{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #ddd;
+}
+
+.noti .progress-error{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #ddd;
+}
+
+.progress.active:before{
+  animation: progress 3.5s linear forwards;
+}
+
+@keyframes progress{
+  100%{
+      right: 100%;
+  }
+}
+
+.noti .progress:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: green;
+}
+
+.noti .progress-error:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: red;
 }

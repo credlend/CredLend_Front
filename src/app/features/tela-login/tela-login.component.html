@@ -124,7 +124,7 @@
                   </div>
 
                   <div class="Entrar">
-                    <button>ENTRAR</button>
+                    <button [disabled]="this.formLogin.invalid" [class.unselectable]="notificationOpened">ENTRAR</button>
                   </div>
                 </div>
               </form>
@@ -162,3 +162,17 @@
 >
   <p style="font-size: 20px; color: white">Carregando...</p>
 </ngx-spinner>
+
+<!-- Toast Notification -->
+<div [style]="sucesso ? 'border-left: 6px solid green;' : 'border-left: 6px solid red;' " class="noti">
+  <div class="noti-content">
+    <i [style]="sucesso ? 'background-color: green;' : 'background-color: red;'" [ngClass]="sucesso ? 'bi bi-check2 check' : 'bi bi-x check'"></i>
+
+      <div class="message">
+          <span class="text text-1">{{ sucesso ? "Sucesso" : "Erro"}}</span>
+          <span class="text text-2">{{ sucesso ? "O usuário foi logado com sucesso!" : "O usuário não existe!"}}</span>
+      </div>
+  </div>
+
+  <div [ngClass]="sucesso ? 'progress' : 'progress-error'" class="progress"></div>
+</div>
