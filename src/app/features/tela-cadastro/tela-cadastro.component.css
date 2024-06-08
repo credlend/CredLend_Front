@@ -19,16 +19,16 @@ body {
 }
 
 .alert_text{
-  color: red;
+  color: #808000;
 }
 .alert_text2{
-  color: red;
+  color: yellow;
   text-align: start;
   font-size: 15px;
 }
 .alert_text3{
   /* max-width: 80%; */
-  color: red;
+  color: yellow;
   font-size: 15px;
   text-align: center;
   font-weight: bold;

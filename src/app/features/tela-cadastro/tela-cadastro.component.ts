@@ -55,6 +55,28 @@ export class TelaCadastroComponent implements OnInit {
     });
   }
 
+
+  replaceName() {
+    let name = this.formCadastro.get("completeName")?.value.replace(/\s/g, "").replace(/[ãáâ]/g, "a");
+    this.formCadastro.patchValue({
+      userName: name
+    });
+    console.log(name);
+  }
+
+  Submit() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.roleSubmit();
+    }, 5000);
+  }
+
+  roleSubmit() {
+    this.patchValueRole();
+    this.putRole(this.formRole.value);
+    console.log(this.formRole.value);
+  }
+
   patchValueRole() {
     this.formRole.patchValue({
       email: this.formCadastro.get("email")?.value,
@@ -63,12 +85,21 @@ export class TelaCadastroComponent implements OnInit {
     });
   }
 
-  replaceName() {
-    let name = this.formCadastro.get("completeName")?.value.replace(/\s/g, "").replace(/[ãáâ]/g, "a");
-    this.formCadastro.patchValue({
-      userName: name
-    });
-    console.log(name);
+  putRole(role: Role) {
+    this.roleService.put(role).subscribe(
+      (retorno: Role | any) => {
+        console.log(retorno);
+        this.spinner.hide();
+      },
+      (erro: any) => {
+        console.log(erro);
+      }
+    );
+  }
+
+  userSubmit() {
+    console.log(this.formCadastro.value);
+    this.saveUser(this.formCadastro.value);
   }
 
   saveUser(user: User) {
@@ -87,7 +118,7 @@ export class TelaCadastroComponent implements OnInit {
                 this.toastNotification(true);
               }, 500);
               setTimeout(() => {
-                this.router.navigate(["/login"]);
+                this.router.navigate(["/painelcontrole"]);
               }, 5000);
             }, 1000);
           }
@@ -102,36 +133,6 @@ export class TelaCadastroComponent implements OnInit {
         }
       );
     }, 1000);
-  }
-
-  Submit() {
-    this.spinner.show();
-    setTimeout(() => {
-      this.roleSubmit();
-    }, 5000);
-  }
-
-  userSubmit() {
-    console.log(this.formCadastro.value);
-    this.saveUser(this.formCadastro.value);
-  }
-
-  roleSubmit() {
-    this.patchValueRole();
-    this.putRole(this.formRole.value);
-    console.log(this.formRole.value);
-  }
-
-  putRole(role: Role) {
-    this.roleService.put(role).subscribe(
-      (retorno: Role | any) => {
-        console.log(retorno);
-        this.spinner.hide();
-      },
-      (erro: any) => {
-        console.log(erro);
-      }
-    );
   }
 
   checkPasswords: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {

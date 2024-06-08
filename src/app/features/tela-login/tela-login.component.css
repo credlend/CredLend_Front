@@ -17,15 +17,15 @@ body {
   /* width: 100%; */
   padding-inline: 15%;
   text-align: center;
-  color: red;
+  color: yellow;
 }
 .alert_text2{
-  color: red;
+  color: yellow;
   text-align: center;
 }
 .alert_text3{
   /* max-width: 90%; */
-  color: red;
+  color: yellow;
   text-align: center;
   font-weight: bold;
   font-size: 15px;
