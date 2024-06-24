@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class RoleService {
 
-  baseUrl = `${environment.UrlPrincipal}/api/Role`;
+  baseUrl = `${environment.UrlPrincipal}/api/v1/Role`;
 
   constructor(private http: HttpClient) { }
 

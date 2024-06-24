@@ -38,7 +38,7 @@ export class PainelcontroleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.nome = this.authObject.user.completeName;
+    this.nome = this.authObject.completeName;
   }
 
   createFormLoan() {
@@ -58,9 +58,9 @@ export class PainelcontroleComponent implements OnInit {
   setLoanValues(){
     this.formLoan.patchValue({
       transactionWay: "pix",
-      userID: this.authObject.user.id,
-      userName: this.authObject.user.userName,
-      email: this.authObject.user.email,
+      userID: this.authObject.id,
+      userName: this.authObject.userName,
+      email: this.authObject.email,
       isActive: true,
       paymentTerm: this.loanResult.paymentTerm,
       interestRate: this.loanResult.interestRate
@@ -168,9 +168,9 @@ export class PainelcontroleComponent implements OnInit {
   setInvestmentValues(){
     this.formInvestment.patchValue({
       transactionWay: "pix",
-      userID: this.authObject.user.id,
-      userName: this.authObject.user.userName,
-      email: this.authObject.user.email,
+      userID: this.authObject.id,
+      userName: this.authObject.userName,
+      email: this.authObject.email,
       isActive: true,
       returnRate: this.investmentResult.returnRate,
       returnDeadLine: this.investmentResult.returnDeadLine

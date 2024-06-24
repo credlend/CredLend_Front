@@ -9,7 +9,7 @@ import { environment } from 'src/enviroments/enviroment';
 })
 export class UserService {
 
-  baseUrl = `${environment.UrlPrincipal}/api/User`;
+  baseUrl = `${environment.UrlPrincipal}/api/v1/User`;
   // userId$ = new BehaviorSubject<any>('');
 
   constructor(private http: HttpClient) { }

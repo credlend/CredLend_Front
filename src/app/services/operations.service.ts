@@ -9,7 +9,7 @@ import { LoanPlan } from '../models/LoanPlan';
 })
 export class OperationService {
 
-  baseUrl = `${environment.UrlPrincipal}/api`;
+  baseUrl = `${environment.UrlPrincipal}/api/v1`;
 
   constructor(private http: HttpClient) { }
 
