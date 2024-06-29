@@ -48,7 +48,7 @@ export class PlanService {
     return this.http.put(`${this.baseUrl}/LoanPlan`, Lplan);
   }
 
-  getLoanById(id: any): Observable<LoanPlan> {
+  getLoanById(id: string): Observable<LoanPlan> {
     return this.http.get<LoanPlan>(`${this.baseUrl}/LoanPlan/${id}`);
   }
 

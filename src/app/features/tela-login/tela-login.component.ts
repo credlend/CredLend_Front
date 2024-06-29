@@ -25,7 +25,7 @@ export class TelaLoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.removeItem("authToken");
+    localStorage.removeItem("userData");
   }
 
   createFormLogin() {
@@ -45,7 +45,7 @@ export class TelaLoginComponent implements OnInit {
           setTimeout(() => {
             this.toastNotification(true);
             console.log(token);
-            localStorage.setItem('authToken', token);
+            localStorage.setItem('userData', token);
             setTimeout(() => {
               this.router.navigate(["/painelcontrole"]);
               this.notificationOpened = false;

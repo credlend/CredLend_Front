@@ -10,25 +10,12 @@ import { environment } from 'src/enviroments/enviroment';
 export class UserService {
 
   baseUrl = `${environment.UrlPrincipal}/api/v1/User`;
-  // userId$ = new BehaviorSubject<any>('');
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseUrl}/AllUsers`);
+  getInvestmentById(id: string): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}/${id}`);
   }
-
-  getAllActive(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseUrl}/ActiveUsers`);
-  }
-
-  // getById(id: string): Observable<User>{
-  //   return this.http.get<User>(`${this.baseUrl}/${id}`);
-  // }
-
-  // updateUserId(value: any) {
-  //   this.userId$.next(value);
-  // }
 
   postRegister(user: User){
     return this.http.post(`${this.baseUrl}/Register`, user);
@@ -39,10 +26,6 @@ export class UserService {
       responseType: 'text',
     });
   }
-
-  // put(user: User){
-  //   return this.http.put(`${this.baseUrl}/${user.id}`, user);
-  // }
 
   delete(id: string){
     return this.http.delete(`${this.baseUrl}/${id}`);

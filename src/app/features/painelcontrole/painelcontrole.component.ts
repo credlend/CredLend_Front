@@ -24,7 +24,7 @@ export class PainelcontroleComponent implements OnInit {
   InvestmentId: any[] = ['31a8200d-62ba-4d47-bfb1-061f0a58b7df', '59b1d5c1-046c-498b-8885-4f4710a14e18'];
   loanResult!: any;
   investmentResult!: any;
-  authToken = localStorage.getItem('authToken');
+  authToken = localStorage.getItem('userData');
   authObject = JSON.parse(this.authToken!);
   sucessoLoan!: boolean;
   sucessoInvestment!: boolean;
@@ -87,9 +87,6 @@ export class PainelcontroleComponent implements OnInit {
   updateFormLoan()
   {
     this.getLoanPlan();
-    setTimeout(() => {
-      this.setLoanValues();
-    }, 500);
   }
 
   getLoanPlan(){
@@ -97,13 +94,11 @@ export class PainelcontroleComponent implements OnInit {
     {
       this.planService.getLoanById(this.LoanId[0]).subscribe(
         (retorno: LoanPlan | any) => {
-          // console.log(retorno);
           this.loanResult = retorno;
-          // console.log(this.loanResult.paymentTerm)
+          this.setLoanValues();
         },
         (erro: any) => {
           console.log(erro);
-          // alert("O plano não existe!");
         }
       );
     }
@@ -111,12 +106,11 @@ export class PainelcontroleComponent implements OnInit {
     {
       this.planService.getLoanById(this.LoanId[1]).subscribe(
         (retorno: LoanPlan | any) => {
-          console.log(retorno);
           this.loanResult = retorno;
+          this.setLoanValues();
         },
         (erro: any) => {
           console.log(erro);
-          // alert("O plano não existe!");
         }
       );
     }
@@ -141,12 +135,11 @@ export class PainelcontroleComponent implements OnInit {
     {
       this.planService.getInvestmentById(this.InvestmentId[0]).subscribe(
         (retorno: InvestmentPlan | any) => {
-          // console.log(retorno);
           this.investmentResult = retorno;
+          this.setInvestmentValues();
         },
         (erro: any) => {
           console.log(erro);
-          // alert("O plano não existe!");
         }
       );
     }
@@ -154,12 +147,11 @@ export class PainelcontroleComponent implements OnInit {
     {
       this.planService.getInvestmentById(this.InvestmentId[1]).subscribe(
         (retorno: InvestmentPlan | any) => {
-          console.log(retorno);
           this.investmentResult = retorno;
+          this.setInvestmentValues();
         },
         (erro: any) => {
           console.log(erro);
-          // alert("O plano não existe!");
         }
       );
     }
@@ -196,10 +188,7 @@ export class PainelcontroleComponent implements OnInit {
 
   updateFormInvestment()
   {
-    this.getInvestmentPlan();
-    setTimeout(() => {
-      this.setInvestmentValues();
-    }, 500);
+    this.getInvestmentPlan();;
   }
   
 

@@ -20,9 +20,4 @@ export class RoleService {
   post(role: Role){
     return this.http.post(`${this.baseUrl}/CreateRole`, role);
   }
-
-  put(role: Role){
-    return this.http.put(`${this.baseUrl}/UpdateUserRole`, role);
-  }
-
 }

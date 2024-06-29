@@ -1,6 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Role } from 'src/app/models/Role';
@@ -12,10 +19,9 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-tela-cadastro',
   templateUrl: './tela-cadastro.component.html',
-  styleUrls: ['./tela-cadastro.component.css']
+  styleUrls: ['./tela-cadastro.component.css'],
 })
 export class TelaCadastroComponent implements OnInit {
-
   title = 'CredLendFront';
   formCadastro!: FormGroup;
   formRole!: FormGroup;
@@ -25,76 +31,61 @@ export class TelaCadastroComponent implements OnInit {
   erros: number = 0;
   sucesso!: boolean;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private roleService: RoleService, private spinner: NgxSpinnerService, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private roleService: RoleService,
+    private spinner: NgxSpinnerService,
+    private router: Router
+  ) {
     this.createFormUser();
     this.createFormRole();
   }
 
   ngOnInit(): void {
-    
+    localStorage.removeItem('userData');
   }
 
   createFormUser() {
-    this.formCadastro = this.fb.group({
-      completeName: ['', [Validators.required]],
-      userName: ['', [Validators.required]],
-      cpf: ['', [Validators.required, CustomValidator.isValidCpf()]],
-      birthDate: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, CustomValidator.senhaComplexaValidator]],
-      confirmPassword: ['', [Validators.required]],
-      isActive: [true]
-    }, { validators: this.checkPasswords });
+    this.formCadastro = this.fb.group(
+      {
+        completeName: ['', [Validators.required]],
+        userName: ['', [Validators.required]],
+        cpf: ['', [Validators.required, CustomValidator.isValidCpf()]],
+        birthDate: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [Validators.required, CustomValidator.senhaComplexaValidator],
+        ],
+        confirmPassword: ['', [Validators.required]],
+        isActive: [true],
+      },
+      { validators: this.checkPasswords }
+    );
   }
 
   createFormRole() {
     this.formRole = this.fb.group({
       email: [''],
       role: [''],
-      delete: [false]
+      delete: [false],
     });
   }
 
-
   replaceName() {
-    let name = this.formCadastro.get("completeName")?.value.replace(/\s/g, "").replace(/[ãáâ]/g, "a");
+    let name = this.formCadastro
+      .get('completeName')
+      ?.value.replace(/\s/g, '')
+      .replace(/[ãáâ]/g, 'a');
     this.formCadastro.patchValue({
-      userName: name
+      userName: name,
     });
     console.log(name);
   }
 
   Submit() {
     this.spinner.show();
-    setTimeout(() => {
-      this.roleSubmit();
-    }, 5000);
-  }
-
-  roleSubmit() {
-    this.patchValueRole();
-    this.putRole(this.formRole.value);
-    console.log(this.formRole.value);
-  }
-
-  patchValueRole() {
-    this.formRole.patchValue({
-      email: this.formCadastro.get("email")?.value,
-      role: "User",
-      delete: false,
-    });
-  }
-
-  putRole(role: Role) {
-    this.roleService.put(role).subscribe(
-      (retorno: Role | any) => {
-        console.log(retorno);
-        this.spinner.hide();
-      },
-      (erro: any) => {
-        console.log(erro);
-      }
-    );
   }
 
   userSubmit() {
@@ -105,41 +96,34 @@ export class TelaCadastroComponent implements OnInit {
   saveUser(user: User) {
     setTimeout(() => {
       this.userService.postRegister(user).subscribe(
-        (retorno: User | any) => {
-          console.log(retorno);
-          this.requiredForm = true
+        (token: string | any) => {
+          this.spinner.hide();
+          this.requiredForm = true;
+          setTimeout(() => {
+            this.toastNotification(true);
+            localStorage.setItem('userData', JSON.stringify(token));
+            setTimeout(() => {
+              this.router.navigate(['/painelcontrole']);
+            }, 4100);
+          }, 100);
         },
-        (erro: HttpErrorResponse) => {
-          if (erro.status === 200) {
-            console.log(erro);
-            setTimeout(() => {
-              this.spinner.hide();
-              setTimeout(() => {
-                this.toastNotification(true);
-              }, 500);
-              setTimeout(() => {
-                this.router.navigate(["/painelcontrole"]);
-              }, 5000);
-            }, 1000);
-          }
-          else {
-            this.spinner.hide();
-            this.requiredForm = false;
-            setTimeout(() => {
-              this.toastNotification(false);
-              console.log(erro);
-            }, 100);        
-          }
+        (erro: any) => {
+          this.spinner.hide();
+          this.requiredForm = false
+          this.toastNotification(false);
+          console.log(erro);
         }
       );
     }, 1000);
   }
 
-  checkPasswords: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
+  checkPasswords: ValidatorFn = (
+    group: AbstractControl
+  ): ValidationErrors | null => {
     let pass = group.get('password')?.value;
-    let confirmPass = group.get('confirmPassword')?.value
-    return pass === confirmPass ? null : { notSame: true }
-  }
+    let confirmPass = group.get('confirmPassword')?.value;
+    return pass === confirmPass ? null : { notSame: true };
+  };
 
   actualDate() {
     debugger;
@@ -152,7 +136,9 @@ export class TelaCadastroComponent implements OnInit {
     const dia = todayDate.getDate();
 
     // Formata a data com zeros à esquerda se necessário
-    const dataFormatada = `${ano}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+    const dataFormatada = `${ano}-${mes.toString().padStart(2, '0')}-${dia
+      .toString()
+      .padStart(2, '0')}`;
 
     // Retorna a data formatada
     return dataFormatada;
@@ -178,26 +164,24 @@ export class TelaCadastroComponent implements OnInit {
   //   this.erros = 0;
   // }
   toastNotification(success: boolean) {
-    const toast = document.querySelector(".noti");
-    const progressBar = document.querySelector(".progress");
+    const toast = document.querySelector('.noti');
+    const progressBar = document.querySelector('.progress');
 
     if (success) {
       this.sucesso = true;
-    }
-    else if (!success) {
+    } else if (!success) {
       this.sucesso = false;
     }
 
-    toast!.classList.add("active");
-    progressBar!.classList.add("active");
+    toast!.classList.add('active');
+    progressBar!.classList.add('active');
 
     setTimeout(() => {
-      toast!.classList.remove("active");
+      toast!.classList.remove('active');
     }, 3400);
 
     setTimeout(() => {
-      progressBar!.classList.remove("active");
+      progressBar!.classList.remove('active');
     }, 4000);
   }
-
 }

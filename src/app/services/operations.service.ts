@@ -5,32 +5,29 @@ import { InvestmentPlan } from '../models/InvestmentPlan';
 import { LoanPlan } from '../models/LoanPlan';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OperationService {
-
   baseUrl = `${environment.UrlPrincipal}/api/v1`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-// Operations Investment Plan
+  // Operations Investment Plan
 
   postInvestmentPlan(Iplan: InvestmentPlan) {
     return this.http.post(`${this.baseUrl}/OperationsInvestmentPlan`, Iplan);
   }
 
-  deleteInvestmentPlan(id: number){
+  deleteInvestmentPlan(id: number) {
     return this.http.delete(`${this.baseUrl}/OperationsInvestmentPlan/${id}`);
   }
 
-// Operations Loan Plan   
+  // Operations Loan Plan
   postLoanPlan(Lplan: LoanPlan) {
     return this.http.post(`${this.baseUrl}/OperationsLoanPlan`, Lplan);
   }
 
-  deleteLoanPlan(id: number){
+  deleteLoanPlan(id: number) {
     return this.http.delete(`${this.baseUrl}/OperationsLoanPlan/${id}`);
   }
-
-
 }
