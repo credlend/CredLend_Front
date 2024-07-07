@@ -10,10 +10,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Role } from 'src/app/models/Role';
 import { User } from 'src/app/models/User';
 import { CustomValidator } from 'src/app/services/customValidators';
-import { RoleService } from 'src/app/services/role.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -31,19 +29,23 @@ export class TelaCadastroComponent implements OnInit {
   erros: number = 0;
   sucesso!: boolean;
 
+  // Variável para controlar o tipo de mensagem do toast
+  toastMessage = {
+    isSuccess: false,
+    message: '',
+  };
+
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private roleService: RoleService,
     private spinner: NgxSpinnerService,
     private router: Router
   ) {
     this.createFormUser();
-    this.createFormRole();
   }
 
   ngOnInit(): void {
-    localStorage.removeItem('userData');
+    sessionStorage.removeItem('userData');
   }
 
   createFormUser() {
@@ -65,13 +67,6 @@ export class TelaCadastroComponent implements OnInit {
     );
   }
 
-  createFormRole() {
-    this.formRole = this.fb.group({
-      email: [''],
-      role: [''],
-      delete: [false],
-    });
-  }
 
   replaceName() {
     let name = this.formCadastro
@@ -94,27 +89,35 @@ export class TelaCadastroComponent implements OnInit {
   }
 
   saveUser(user: User) {
-    setTimeout(() => {
-      this.userService.postRegister(user).subscribe(
-        (token: string | any) => {
-          this.spinner.hide();
-          this.requiredForm = true;
+    this.userService.postRegister(user).subscribe(
+      (response: any) => {
+        this.spinner.hide();
+        if (response.isSucceded) {
+          this.showToast('success', 'Usuário cadastrado com sucesso!');
+          sessionStorage.setItem('userData', JSON.stringify(response));
           setTimeout(() => {
-            this.toastNotification(true);
-            localStorage.setItem('userData', JSON.stringify(token));
-            setTimeout(() => {
-              this.router.navigate(['/painelcontrole']);
-            }, 4100);
-          }, 100);
-        },
-        (erro: any) => {
-          this.spinner.hide();
-          this.requiredForm = false
-          this.toastNotification(false);
-          console.log(erro);
+            this.router.navigate(['/painelcontrole']);
+          }, 4100);
         }
-      );
-    }, 1000);
+      },
+      (error: HttpErrorResponse) => {
+        if (error.status === 400) {
+          this.spinner.hide();
+          console.error(error);
+          this.showToast('error', 'Usuário já cadastrado.'); 
+          setTimeout(() => {
+            this.createFormUser();
+          }, 4000);
+        } else {
+          this.spinner.hide();
+          console.error(error);
+          this.showToast('error', 'Não foi possível completar o cadastro.');
+          setTimeout(() => {
+            this.createFormUser();
+          }, 4000);
+        }
+      }
+    );
   }
 
   checkPasswords: ValidatorFn = (
@@ -144,44 +147,31 @@ export class TelaCadastroComponent implements OnInit {
     return dataFormatada;
   }
 
-  // showErros() {
-  //   if(this.formCadastro.get('cpf')?.invalid){
-  //     this.erros = 1;
-  //   }
-  //   else if(this.formCadastro.get('cpf')?.valid && this.formCadastro.get('email')?.invalid){
-  //     this.erros = 2;
-  //   }
-  //   else if(this.formCadastro.get('email')?.valid && this.formCadastro.get('password')?.invalid){
-  //     this.erros = 3;
-  //   }
-  //   else if(this.formCadastro.get('password')?.valid && this.formCadastro?.getError('notSame')){
-  //     this.erros = 4;
-  //   }
-  //   else if(!this.formCadastro?.getError('notSame') && this.formCadastro.invalid){
-  //     this.erros = 5;
-  //   }
-  //   else if(this.formCadastro.valid)
-  //   this.erros = 0;
-  // }
-  toastNotification(success: boolean) {
+
+  showToast(type: 'success' | 'error', message: string) {
+    this.toastMessage = { isSuccess: type === 'success', message };
+
     const toast = document.querySelector('.noti');
     const progressBar = document.querySelector('.progress');
 
-    if (success) {
-      this.sucesso = true;
-    } else if (!success) {
-      this.sucesso = false;
+    toast?.classList.add('active');
+    progressBar?.classList.add('active');
+
+    // Define a classe de acordo com o tipo de mensagem
+    if (type === 'success') {
+      toast?.classList.add('success');
+      toast?.classList.remove('error');
+    } else {
+      toast?.classList.add('error');
+      toast?.classList.remove('success');
     }
 
-    toast!.classList.add('active');
-    progressBar!.classList.add('active');
-
     setTimeout(() => {
-      toast!.classList.remove('active');
+      toast?.classList.remove('active', 'success', 'error');
     }, 3400);
 
     setTimeout(() => {
-      progressBar!.classList.remove('active');
+      progressBar?.classList.remove('active');
     }, 4000);
   }
 }

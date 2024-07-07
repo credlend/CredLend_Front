@@ -137,9 +137,6 @@
                 </div>
               </div>
             </form> -->
-            <div class="alert_text3 d-flex" *ngIf="requiredForm == false">
-              *O usuário informado já está cadastrado! Faça o login.
-            </div>
             <form [formGroup]="formCadastro" (submit)="userSubmit()" style="z-index: 1">
               <div class="form-container">
                 <div class="form-group-name">
@@ -221,15 +218,16 @@
 </ngx-spinner>
 
 <!-- Toast Notification -->
-<div [style]="sucesso ? 'border-left: 6px solid green;' : 'border-left: 6px solid red;' " class="noti">
+<div [style]="toastMessage.isSuccess ? 'border-left: 6px solid green;' : 'border-left: 6px solid red;' " class="noti">
   <div class="noti-content">
-    <i [style]="sucesso ? 'background-color: green;' : 'background-color: red;'" [ngClass]="sucesso ? 'bi bi-check2 check' : 'bi bi-x check'"></i>
+    <i [style]="toastMessage.isSuccess ? 'background-color: green;' : 'background-color: red;'" 
+    [ngClass]="toastMessage.isSuccess ? 'bi bi-check2 check' : 'bi bi-x check'"></i>
 
-      <div class="message">
-          <span class="text text-1">{{ sucesso ? "Sucesso" : "Erro"}}</span>
-          <span class="text text-2">{{ sucesso ? "O usuário foi cadastrado com sucesso!" : "Esse usuário já está cadastrado!"}}</span>
-      </div>
+    <div class="message">
+      <span class="text text-1">{{ toastMessage.isSuccess ? "Sucesso" : "Erro" }}</span>
+      <span class="text text-2">{{ toastMessage.message }}</span>
+    </div>
   </div>
 
-  <div [ngClass]="sucesso ? 'progress' : 'progress-error'" class="progress"></div>
+  <div [ngClass]="toastMessage.isSuccess ? 'progress' : 'progress-error'" class="progress"></div>
 </div>

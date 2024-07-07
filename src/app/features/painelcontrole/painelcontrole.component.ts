@@ -24,7 +24,7 @@ export class PainelcontroleComponent implements OnInit {
   InvestmentId: any[] = ['31a8200d-62ba-4d47-bfb1-061f0a58b7df', '59b1d5c1-046c-498b-8885-4f4710a14e18'];
   loanResult!: any;
   investmentResult!: any;
-  authToken = localStorage.getItem('userData');
+  authToken = sessionStorage.getItem('userData');
   authObject = JSON.parse(this.authToken!);
   sucessoLoan!: boolean;
   sucessoInvestment!: boolean;
@@ -197,7 +197,7 @@ export class PainelcontroleComponent implements OnInit {
   }
 
   logOut(){
-    localStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken");
     this.router.navigate(['/login']);
   }
 
