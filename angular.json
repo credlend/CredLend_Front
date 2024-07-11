@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "CredLend:build:production"
+              "buildTarget": "CredLend:build:production"
             },
             "development": {
-              "browserTarget": "CredLend:build:development"
+              "buildTarget": "CredLend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "CredLend:build"
+            "buildTarget": "CredLend:build"
           }
         },
         "test": {
