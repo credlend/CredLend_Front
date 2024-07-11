@@ -315,6 +315,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 8px;
   width: 110px;
   margin-left: auto;
+  margin-top: 10px;
 }
 
 .cont4 aside {
@@ -336,13 +337,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .cont4 .container {
   text-align: start;
   font-size: 12px;
-}
-
-.cont4 .container .info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid blue;
 }
 
 .cont4 .container .info h5 {

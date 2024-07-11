@@ -199,17 +199,17 @@
                   <label for="data">Pagar a 1ª parcela</label>
                   <input
                     class="form-control input-data"
-                    mask="0000/M0/d0"
+                    mask="d0/M0/0000"
                     style="
                       pointer-events: none;
                       text-align: end;
                       height: 68% !important;
                       border-radius: 5px;
                     "
-                    formControlName="paymentTerm"
+                    formControlName="paymentDate"
                     type="datetime"
                     name="data"
-                    placeholder="0000/00/00"
+                    placeholder="10/12/2024"
                   />
                 </div>
 
@@ -237,7 +237,7 @@
 
               <div class="d-flex justify-content-end">
                 <div class="total">
-                  <p>Valor Total: 0</p>
+                  <!-- <p>Valor Total: 0</p> -->
                   <button
                     (click)="SubmitLoan()"
                     [class.unselectable]="notificationLoanOpened"
@@ -259,54 +259,46 @@
             <h5>Investir seu dinheiro</h5>
             <form [formGroup]="formInvestment">
               <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
-                  <div class="row gx-0 mt-1">
-                    <div
-                      class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 px-1"
-                    >
-                      <label for="moedas2">Quanto deseja investir?</label>
-                      <div class="input-group">
-                        <span class="input-group-text">R$</span>
-                        <input
-                          (change)="updateFormInvestment()"
-                          type="number"
-                          class="form-control"
-                          min="0"
-                          formControlName="valuePlan"
-                          name="valor"
-                          placeholder="1000"
-                          style="text-align: end"
-                        />
-                      </div>
-                    </div>
-
-                    <div
-                      class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 px-1"
-                    >
-                      <label>Taxa de retorno</label>
-                      <div class="input-group">
-                        <input
-                          type="number"
-                          formControlName="returnRate"
-                          name="valor-juros"
-                          style="text-align: end; pointer-events: none"
-                          class="form-control"
-                          placeholder="0"
-                        />
-                        <span class="input-group-text">%</span>
-                      </div>
-                    </div>
-
-                    <div class="col-12 col-sm-2 w-auto px-1 m-0">
-                      <button
-                        (click)="SubmitInvestment()"
-                        [class.unselectable]="notificationInvestmentOpened"
-                      >
-                        Finalizar
-                      </button>
-                    </div>
+                <div class="col-12 col-sm-5 col-md-4 col-lg-4 col-xl-3 px-1">
+                  <label for="moedas2">Quanto deseja investir?</label>
+                  <div class="input-group">
+                    <span class="input-group-text">R$</span>
+                    <input
+                      (change)="updateFormInvestment()"
+                      type="number"
+                      class="form-control"
+                      min="0"
+                      formControlName="valuePlan"
+                      name="valor"
+                      placeholder="1000"
+                      style="text-align: end"
+                    />
                   </div>
                 </div>
+
+                <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2 px-1">
+                  <label>Taxa de retorno</label>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      formControlName="returnRate"
+                      name="valor-juros"
+                      style="text-align: end; pointer-events: none"
+                      class="form-control"
+                      placeholder="0"
+                    />
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+                
+                <div class="d-flex justify-content-end align-items-end">
+                  <button
+                  (click)="SubmitInvestment()"
+                  [class.unselectable]="notificationInvestmentOpened"
+                  >
+                  Finalizar
+                </button>
+              </div>
               </div>
             </form>
           </div>

@@ -49,6 +49,7 @@ export class PainelcontroleComponent implements OnInit {
       userName: [''], 
       email: [''], 
       isActive: [''],
+      paymentDate: ['',  [Validators.required]],
       paymentTerm: ['',  [Validators.required]],
       interestRate: ['', [Validators.required]] 
     });
@@ -57,11 +58,12 @@ export class PainelcontroleComponent implements OnInit {
   
   setLoanValues(){
     this.formLoan.patchValue({
-      transactionWay: "pix",
+      transactionWay: this.loanResult.transactionWay,
       userID: this.authObject.id,
       userName: this.authObject.userName,
       email: this.authObject.email,
       isActive: true,
+      paymentDate: this.formatteDate(this.loanResult.paymentTerm),
       paymentTerm: this.loanResult.paymentTerm,
       interestRate: this.loanResult.interestRate
    });
@@ -249,6 +251,20 @@ export class PainelcontroleComponent implements OnInit {
       progressBar!.classList.remove("active");
       this.notificationInvestmentOpened = false;
     }, 3300);
+  }
+
+  
+  formatteDate(date: string) {
+    const dateString = date;
+    const paymentDate = new Date(dateString);
+
+    const day = paymentDate.getDate().toString().padStart(2, '0');
+    const month = (paymentDate.getMonth() + 1).toString().padStart(2, '0');
+    const year = paymentDate.getFullYear();
+
+    const formattedDate = `${day}/${month}/${year}`;
+
+    return formattedDate;
   }
 
 }
