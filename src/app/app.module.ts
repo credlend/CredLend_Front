@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,29 +16,23 @@ import { TelaLoginComponent } from './features/tela-login/tela-login.component';
 import { TelaCadastroComponent } from './features/tela-cadastro/tela-cadastro.component';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    PainelcontroleComponent,
-    HomeComponent,
-    TelaCadastroComponent,
-    TelaLoginComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BsDropdownModule.forRoot(),
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NgxMaskDirective,
-    NgxSpinnerModule
-  ],
-  providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    provideNgxMask()
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        PainelcontroleComponent,
+        HomeComponent,
+        TelaCadastroComponent,
+        TelaLoginComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BsDropdownModule.forRoot(),
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgxMaskDirective,
+        NgxSpinnerModule], providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+        provideNgxMask(),
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
