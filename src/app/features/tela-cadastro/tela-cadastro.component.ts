@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { User } from 'src/app/models/User';
 import { CustomValidator } from 'src/app/services/customValidators';
+import { ExternalAuthProvider } from 'src/app/services/externalAuthProvider';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -39,9 +40,11 @@ export class TelaCadastroComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private spinner: NgxSpinnerService,
-    private router: Router
+    private router: Router,
+    private externalAuthProvider: ExternalAuthProvider
   ) {
     this.createFormUser();
+    this.LoginWithGoogle();
   }
 
   ngOnInit(): void {
@@ -66,7 +69,6 @@ export class TelaCadastroComponent implements OnInit {
       { validators: this.checkPasswords }
     );
   }
-
 
   replaceName() {
     let name = this.formCadastro
@@ -104,7 +106,7 @@ export class TelaCadastroComponent implements OnInit {
         if (error.status === 400) {
           this.spinner.hide();
           console.error(error);
-          this.showToast('error', 'Usuário já cadastrado.'); 
+          this.showToast('error', 'Usuário já cadastrado.');
           setTimeout(() => {
             this.createFormUser();
           }, 4000);
@@ -147,7 +149,6 @@ export class TelaCadastroComponent implements OnInit {
     return dataFormatada;
   }
 
-
   showToast(type: 'success' | 'error', message: string) {
     this.toastMessage = { isSuccess: type === 'success', message };
 
@@ -173,5 +174,10 @@ export class TelaCadastroComponent implements OnInit {
     setTimeout(() => {
       progressBar?.classList.remove('active');
     }, 4000);
+  }
+
+  LoginWithGoogle() {
+    this.externalAuthProvider.ExternalAuth();
+    
   }
 }

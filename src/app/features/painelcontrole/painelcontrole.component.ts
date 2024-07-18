@@ -5,6 +5,7 @@ import { InvestmentOperation } from 'src/app/models/InvestmentOperation';
 import { InvestmentPlan } from 'src/app/models/InvestmentPlan';
 import { LoanOperation } from 'src/app/models/LoanOperation';
 import { LoanPlan } from 'src/app/models/LoanPlan';
+import { ExternalAuthProvider } from 'src/app/services/externalAuthProvider';
 import { OperationService } from 'src/app/services/operations.service';
 import { PlanService } from 'src/app/services/plan.service';
 
@@ -31,7 +32,7 @@ export class PainelcontroleComponent implements OnInit {
   notificationLoanOpened!: boolean;
   notificationInvestmentOpened!: boolean;
 
-  constructor(private fb: FormBuilder, private planService: PlanService, private operationService: OperationService, private router: Router) 
+  constructor(private fb: FormBuilder, private planService: PlanService, private operationService: OperationService, private router: Router, private externalAuth: ExternalAuthProvider) 
   {
     this.createFormLoan();
     this.createFormInvestment();
@@ -190,7 +191,7 @@ export class PainelcontroleComponent implements OnInit {
 
   updateFormInvestment()
   {
-    this.getInvestmentPlan();;
+    this.getInvestmentPlan();
   }
   
 
@@ -201,6 +202,10 @@ export class PainelcontroleComponent implements OnInit {
   logOut(){
     sessionStorage.removeItem("authToken");
     this.router.navigate(['/login']);
+
+    if(this.externalAuth.loggedIn) {
+      this.externalAuth.SignOutExternal();
+    }
   }
 
   toastNotificationLoan(success: boolean) {

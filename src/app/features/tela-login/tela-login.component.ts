@@ -5,12 +5,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { User } from 'src/app/models/User';
 import { AuthInterceptor } from 'src/app/services/authinterceptor';
 import { CustomValidator } from 'src/app/services/customValidators';
+import { ExternalAuthProvider } from 'src/app/services/externalAuthProvider';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-tela-login',
   templateUrl: './tela-login.component.html',
-  styleUrls: ['./tela-login.component.css']
+  styleUrls: ['./tela-login.component.css'],
 })
 export class TelaLoginComponent implements OnInit {
   title = 'CredLendLogin';
@@ -20,8 +21,9 @@ export class TelaLoginComponent implements OnInit {
   sucesso!: boolean;
   notificationOpened!: boolean;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private spinner: NgxSpinnerService, private router: Router) {
+  constructor(private fb: FormBuilder, private userService: UserService, private spinner: NgxSpinnerService, private router: Router, private externalAuthProvider: ExternalAuthProvider) {
     this.createFormLogin();
+    this.LoginWithGoogle();
   }
 
   ngOnInit(): void {
@@ -93,18 +95,9 @@ export class TelaLoginComponent implements OnInit {
     setTimeout(() => {
       progressBar!.classList.remove("active");
     }, 4000);
+  } 
+
+  LoginWithGoogle() {
+    this.externalAuthProvider.ExternalAuth();
   }
-  // showErros() {
-  //   if(this.formLogin.get('email')?.invalid){
-  //     this.erros = 1;
-  //   }
-  //   else if(this.formLogin.get('email')?.valid && this.formLogin.get('password')?.invalid){
-  //     this.erros = 2;
-  //   }
-  //   else if(this.formLogin.get('password')?.valid && this.formLogin.invalid){
-  //     this.erros = 3;
-  //   }
-  //   else if(this.formLogin.valid)
-  //   this.erros = 0;
-  // }
 }
