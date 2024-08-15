@@ -124,7 +124,6 @@ button:active {
   justify-content: center;
   flex-direction: column;
   margin-top: 15px;
-  text-align: center;
   color: #fff;
   width: 310px;
   height: 415px;
@@ -169,8 +168,27 @@ button:active {
   margin-left: 50px;
 }
 
-.cartao .espaco {
-  margin-top: 90px;
+.history {
+  max-height: 40%;
+  overflow-y: scroll;
+}
+
+.history ul {
+  font-size: small;
+  list-style-type: none;
+}
+
+.history button {
+  background-color: #fff500;
+  border: none;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 8px;
+  width: 110px;
+  text-align: center;
 }
 
 .cont3 aside {
@@ -216,12 +234,7 @@ button:active {
   cursor: pointer;
 }
 
-.cont3
-  .container
-  .info
-  .inputs
-  .valores
-  input[type="number"]::-webkit-inner-spin-button,
+.cont3 .container .info .inputs .valores input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   cursor: pointer;
 }
@@ -233,12 +246,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 150px;
 }
 
-.cont4
-  .container
-  .info
-  .inputs
-  .valores
-  input[type="number"]::-webkit-inner-spin-button,
+.cont4 .container .info .inputs .valores input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   cursor: pointer;
 }
@@ -259,12 +267,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-left: 20px;
 }
 
-.cont3
-  .container
-  .info
-  .inputs
-  .valores2
-  input[type="date"]::-webkit-calendar-picker-indicator {
+.cont3 .container .info .inputs .valores2 input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
